@@ -1,0 +1,40 @@
+html, body{
+    background-color:rgb(255, 255, 255);
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+*{
+    margin: 0;
+}
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.center-text{
+    text-align:center;
+}
+.header{
+    height: 80px;
+    width: 100%;
+    background-color: rgb(27, 21, 21);
+}
+.secondary-header{
+    height:40px;
+    width: 100%;
+    background-color: grey;
+}
+.title-text{
+    color: white;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.secondary-text{
+    text-align:left;
+}
+
