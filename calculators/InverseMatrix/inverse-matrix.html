@@ -53,3 +53,128 @@ This section lets you explore how matrix inverses are computed step by step. You
 
 Experiment, adjust, and discover how matrices “undo” each other — one operation at a time.</p>
 </div>
+
+
+
+
+
+
+
+
+
+
+<div class="container mt-4">
+    <h1 class ="text-primary fw-bold text-center">Enter Matrix Dimension</h1>
+    <div class="container mt-4 text-center">
+      <label for="rows">Rows:</label>
+      <input type="number" id="rows" placeholder="Enter Row Size">
+
+      <label for="rows">Columns:</label>
+      <input type="number" id="columns" placeholder="Enter Column Size">
+    </div>
+
+    <div class="container mt-4 text-center">
+      <h1 class="text-primary fw-bold ">Matrix 1</h1>
+      <div class="container mt-4" id="contained">
+        <input type="number" id="matrix1[0][0]" class="form-control-sm d-inline-block m-1" style="width: 65px;">
+      </div>
+
+    
+      <h1 class="text-primary fw-bold mt-4">Inverse of the Matrix</h1>
+      <div class="container mt-4" id="contained3"></div>
+    </div>
+
+    
+  <div class="mt-3 text-center"> 
+        <a class="btn btn-primary" onclick="generateMatrix()">Generate Matrix</a>
+        <a class="btn btn-primary" onclick="computeMatrix()">Compute Matrix</a>
+        <a class="btn btn-primary" onclick="resetInput()">Reset Matrix</a>
+        <a class="btn btn-primary" onclick="reset()">Reset Input</a>
+        <!-- <a class="btn btn-primary" onclick="displayMatrixValue()">View Values Console</a> -->
+         <br></br>
+  </div> 
+</div>
+
+<script>
+    
+  function getDeterminant(){
+    
+  }
+
+  function reset(){
+    document.getElementById("rows").value = "";
+    document.getElementById("columns").value = "";
+
+    document.getElementById("rows").innerHTML = "";
+    document.getElementById("columns").innerHTML = "";
+  }
+  function resetInput(){
+    const container = document.getElementById("contained");
+    container.innerHTML = "";
+    let input = document.createElement("input");
+    input.id = "matrix1[0][0]";
+    input.className = "form-control-sm d-inline-block m-1";
+    input.style.width = "65px";
+    container.append(input);
+    //<input id="matrix1[0][0]"></input>
+  }
+  function generateMatrix(){
+    const rows = document.getElementById("rows").value;
+    const columns = document.getElementById("columns").value;
+    const container = document.getElementById("contained");
+    container.innerHTML = "";
+
+    if((rows <=0 || columns <=0) || (rows != columns)){
+      alert("Please enter valid row and column sizes greater than 0. Row and Column sizes must be the same for Inverse Matrix.");
+      
+      const container = document.getElementById("contained");
+      container.innerHTML = "";
+      let input = document.createElement("input");
+      input.id = "matrix1[0][0]";
+      input.className = "form-control-sm d-inline-block m-1";
+      input.style.width = "65px";
+      container.append(input);
+      return;
+    }
+
+    for(let i =0 ; i < rows; i++){
+        for(let j = 0; j < columns; j++){
+          const input = document.createElement("input");
+          input.type = "number";
+          input.id = `matrix1[${i}][${j}]`;
+          input.className = "form-control-sm d-inline-block m-1";
+          input.style.width = "65px";
+
+          container.append(input);
+        }
+        const br = document.createElement("br");
+        container.append(br);
+    }
+  }
+  
+  function displayMatrixValue(){
+    const rows = document.getElementById("rows").value;
+    const columns = document.getElementById("columns").value;
+    for(let i =0 ; i < rows; i++){
+      for(let j = 0; j < columns; j++){
+        const val1 = document.getElementById(`matrix1[${i}][${j}]`).value;
+        const val2 = document.getElementById(`matrix2[${i}][${j}]`).value;
+        console.log("Matrix 1 Value at ("+i+","+j+"): "+val1);
+        console.log("Matrix 2 Value at ("+i+","+j+"): "+val2);
+      }
+    }
+  }
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+</html>
