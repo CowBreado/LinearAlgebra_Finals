@@ -1,0 +1,79 @@
+<h2>Row & Column Matrix</h2>
+
+<p>
+    <strong>Row matrices</strong> and <strong>column matrices</strong> are among the simplest and most useful types of matrices you'll encounter. 
+    As their names suggest, a row matrix has only <strong>one row</strong>, and a column matrix has only <strong>one column</strong>. 
+    Despite their simple structure, these matrices — often called <strong>vectors</strong> — are fundamental building blocks in linear algebra and appear in countless applications.<br><br>
+</p>
+
+<p>
+    A <strong>row matrix</strong> looks like a horizontal list of numbers. 
+    For example, [3, 7, 2, 9] is a row matrix with 4 elements. 
+    It's written as a single row, and you can think of it as representing a single observation or data point. 
+    In many contexts, row matrices are used to store coordinates, represent a single set of measurements, or encode information about one object or entity.<br><br>
+</p>
+
+<p>
+    A <strong>column matrix</strong> looks like a vertical list of numbers. 
+    For example, a column matrix with 3 elements might look like:<br><br>
+</p>
+
+<p style="text-align:center;">
+    <strong>
+        \( \begin{bmatrix}
+            5 \\
+            8 \\
+            1
+        \end{bmatrix} \)
+    </strong>
+    <br><br>
+</p>
+
+<p>
+    Column matrices are particularly common in systems of equations, where each element might represent a coefficient or a constant. 
+    They're also used to represent vectors in physics and geometry, where they can describe positions, velocities, or forces in space.<br><br>
+</p>
+
+<p>
+    One important thing to remember is that row and column matrices are <strong>not the same</strong>, even if they contain the same numbers. 
+    The matrix [1, 2, 3] (a row matrix) is different from the column matrix with elements 1, 2, 3. 
+    This distinction matters when performing operations like matrix multiplication, where the orientation affects how the calculation works.<br><br>
+</p>
+
+<p>
+    In practical terms, think of a row matrix like a <strong>single line in a spreadsheet</strong> — it contains information about one thing across multiple categories. 
+    For instance, a row matrix might represent one student's test scores: [85, 92, 78, 90], where each number is a score in a different subject. 
+    A column matrix, on the other hand, is like a <strong>single column in a spreadsheet</strong> — it contains one type of information for multiple items. 
+    For example, a column matrix might represent all students' scores on the math test: [85, 72, 91, 88, 79].<br><br>
+</p>
+
+<p>
+    Here are some key properties and uses:<br><br>
+</p>
+<ul style="margin-bottom: 2em;">
+    <li><strong>Dimensions</strong> — A row matrix is 1 × n (1 row, n columns), and a column matrix is m × 1 (m rows, 1 column)</li>
+    <li><strong>Vector representation</strong> — Both types are often called vectors and used to represent directions, positions, or data points</li>
+    <li><strong>Matrix multiplication</strong> — Row and column matrices can be multiplied together in specific ways to produce useful results</li>
+    <li><strong>Data organization</strong> — They're ideal for storing single observations or single variables across multiple cases</li>
+</ul>
+
+<p>
+    When you multiply a row matrix by a column matrix (in that order), you get a single number called a <strong>dot product</strong> or <strong>scalar product</strong>. 
+    This operation is extremely common in mathematics, physics, and data science. 
+    For example, if you have a row matrix representing prices [10, 5, 8] and a column matrix representing quantities [3, 2, 4], multiplying them gives you the total cost: (10×3) + (5×2) + (8×4) = 30 + 10 + 32 = 72.<br><br>
+</p>
+
+<p>
+    Understanding row and column matrices gives you a foundation for working with more complex matrix structures. 
+    Many operations on larger matrices can be thought of as working with rows and columns individually, so mastering these simple cases helps you understand the more general principles.<br><br>
+</p>
+
+<hr style="margin-top: 2em;">
+
+<p style="font-size: 0.9em; color: #777; font-style: italic;">
+    <strong>References:</strong><br>
+    <a href="https://www.khanacademy.org/math/linear-algebra/vectors-and-spaces/vectors/v/vector-introduction-linear-algebra" target="_blank">Khan Academy. "Introduction to Vectors."</a><br>
+    <a href="https://www.mathsisfun.com/algebra/matrix-multiplying.html" target="_blank">Math is Fun. "Multiplying Matrices."</a><br>
+    <a href="https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/readings/" target="_blank">MIT OpenCourseWare. "Linear Algebra."</a>
+</p>
+

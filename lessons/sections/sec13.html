@@ -1,0 +1,118 @@
+<h2>Transpose of a Matrix</h2>
+
+<p>
+    The <strong>transpose</strong> of a matrix is a simple but important operation that flips a matrix over its main diagonal. 
+    When you transpose a matrix, the rows become columns and the columns become rows. 
+    This operation is denoted by a superscript T (like A<sup>T</sup>) or sometimes a prime symbol (like A'). 
+    Understanding the transpose is essential for many applications in linear algebra, statistics, and data science.<br><br>
+</p>
+
+<p>
+    To find the transpose of a matrix, you simply <strong>swap rows and columns</strong>. 
+    The element that was in row i, column j moves to row j, column i in the transposed matrix. 
+    In other words, the first row becomes the first column, the second row becomes the second column, and so on. 
+    This means that if you have an m×n matrix, its transpose will be an n×m matrix.<br><br>
+</p>
+
+<p>
+    Here's an example of transposing a 2×3 matrix:<br><br>
+</p>
+
+<p style="text-align:center;">
+    <strong>
+        If \( A = \begin{bmatrix}
+            1 & 2 & 3 \\
+            4 & 5 & 6
+        \end{bmatrix} \), then \( A^T = \begin{bmatrix}
+            1 & 4 \\
+            2 & 5 \\
+            3 & 6
+        \end{bmatrix} \)
+    </strong>
+    <br><br>
+</p>
+
+<p>
+    Notice how the 2×3 matrix becomes a 3×2 matrix. 
+    The first row [1, 2, 3] becomes the first column, and the second row [4, 5, 6] becomes the second column. 
+    This flipping action is what makes the transpose operation so useful — it changes the orientation of the data while preserving all the information.<br><br>
+</p>
+
+<p>
+    For a square matrix, the transpose has a particularly interesting property. 
+    If you transpose a square matrix and get the same matrix back, that matrix is called <strong>symmetric</strong>. 
+    In other words, a symmetric matrix satisfies A<sup>T</sup> = A. 
+    This means the matrix looks the same when reflected across its main diagonal.<br><br>
+</p>
+
+<p>
+    Here's an example of a symmetric matrix:<br><br>
+</p>
+
+<p style="text-align:center;">
+    <strong>
+        \( S = \begin{bmatrix}
+            1 & 2 & 3 \\
+            2 & 4 & 5 \\
+            3 & 5 & 6
+        \end{bmatrix} \)
+    </strong>
+    <br><br>
+</p>
+
+<p>
+    Notice how S<sup>T</sup> = S — the matrix is the same when you flip it across the diagonal. 
+    Symmetric matrices appear frequently in applications like distance matrices, correlation matrices, and systems where relationships are bidirectional.<br><br>
+</p>
+
+<p>
+    The transpose operation has several useful properties:<br><br>
+</p>
+<ul style="margin-bottom: 2em;">
+    <li><strong>Double transpose</strong> — (A<sup>T</sup>)<sup>T</sup> = A (transposing twice gives you back the original)</li>
+    <li><strong>Transpose of sum</strong> — (A + B)<sup>T</sup> = A<sup>T</sup> + B<sup>T</sup></li>
+    <li><strong>Transpose of product</strong> — (A × B)<sup>T</sup> = B<sup>T</sup> × A<sup>T</sup> (note the order reverses!)</li>
+    <li><strong>Transpose of scalar multiple</strong> — (kA)<sup>T</sup> = kA<sup>T</sup></li>
+</ul>
+
+<p>
+    One important thing to notice is that when you transpose a product, the order of multiplication reverses. 
+    This is similar to how (AB)<sup>-1</sup> = B<sup>-1</sup>A<sup>-1</sup> for matrix inverses. 
+    Always remember: (A × B)<sup>T</sup> = B<sup>T</sup> × A<sup>T</sup>, not A<sup>T</sup> × B<sup>T</sup>!<br><br>
+</p>
+
+<p>
+    In practical applications, the transpose is used for many purposes. 
+    In <strong>data analysis</strong>, you might transpose a dataset to switch between having variables as rows or columns. 
+    In <strong>linear algebra</strong>, the transpose is used in solving systems of equations and finding least-squares solutions. 
+    In <strong>computer graphics</strong>, transposing matrices can change how transformations are applied. 
+    In <strong>statistics</strong>, the transpose is essential for working with covariance and correlation matrices.<br><br>
+</p>
+
+<p>
+    Think of the transpose like <strong>rotating a table</strong> 90 degrees. 
+    If you have a table with students in rows and test scores in columns, transposing it would give you a table with test scores in rows and students in columns. 
+    The information is all still there, just organized differently. 
+    Sometimes this different organization makes certain calculations or analyses easier to perform.<br><br>
+</p>
+
+<p>
+    When working with row and column vectors, the transpose converts between them. 
+    If you have a row vector [1, 2, 3], its transpose is the column vector with the same elements. 
+    This is particularly useful when you need to switch between different representations of the same data.<br><br>
+</p>
+
+<p>
+    Understanding the transpose operation gives you flexibility in how you organize and manipulate matrix data. 
+    It's a simple operation that opens up many possibilities for solving problems and working with data in different formats.<br><br>
+</p>
+
+<hr style="margin-top: 2em;">
+
+<p style="font-size: 0.9em; color: #777; font-style: italic;">
+    <strong>References:</strong><br>
+    <a href="https://www.khanacademy.org/math/linear-algebra/matrix-transformations/matrix-transpose/v/linear-algebra-transpose-of-a-matrix" target="_blank">Khan Academy. "Transpose of a Matrix."</a><br>
+    <a href="https://mathworld.wolfram.com/Transpose.html" target="_blank">Weisstein, E. W. "Transpose." From MathWorld—A Wolfram Web Resource.</a><br>
+    <a href="https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/" target="_blank">MIT OpenCourseWare. "Linear Algebra."</a>
+</p>
+

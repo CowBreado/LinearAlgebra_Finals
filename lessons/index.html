@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scroll Highlight Layout</title>
+  <link rel="stylesheet" href="style.css" />
+  <script> 
+    document.addEventListener("DOMContentLoaded", () => {
+        const sections = document.querySelectorAll(".content-section");
+
+        sections.forEach(sec => {
+            fetch(`sections/${sec.id}.html`)
+                .then(response => {
+                    if (!response.ok) {
+                        console.error(`Failed to load ${sec.id}:`, response.status);
+                        return "<p>Error loading section.</p>";
+                    }
+                    return response.text();
+                })
+                .then(html => {
+                    sec.innerHTML = html;
+                    if (window.MathJax) {
+                        MathJax.typesetPromise();  
+                    }
+                })
+                .catch(err => {
+                    sec.innerHTML = "<p>Could not load content.</p>";
+                    console.error(err);
+                });
+        });
+    });
+    </script>
+
+
+    <!-- MathJax Config -->
+    <script>window.MathJax = { tex: { inlineMath: [['\\(','\\)'], ['$', '$']] } };</script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jstat@latest/dist/jstat.min.js"></script>
+    
+</head>
+<body>
+    <!-- Top Navigation Bar Section-->
+    <header class="top-nav">
+        <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-label="Toggle sidebar" style="color: white;">☰</button>
+        <h1 style="font-size:18px;"><a href="#" style="padding: 0px;text-decoration: none; color:white;">Linear Algebra Lessons</a></h1>
+        <div style="display:flex; flex: 1; justify-content: end;">
+            <h1 style="font-size:18px;"><a href="../index.html" class="center-right" style="padding: 20px 40px;text-decoration: none; color:white;">Home</a></h1>
+            <h1 style="font-size:18px;"><a href="#" class="center-right" style="padding: 20px 40px;text-decoration: none; color:white;">About</a></h1>
+        </div> 
+    </header>
+
+    
+
+    <div class="overlay" id="overlay"></div>
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+        <nav>
+        <ul>
+            <!-- SECTION GROUP 1 -->
+            <h3>Introduction to Matrices</h3>
+            <li><a href="#sec1" class="nav-link">What Is a Matrix?</a></li>
+            <li><a href="#sec2" class="nav-link">Matrix Notation & Terminology</a></li>
+            <li><a href="#sec3" class="nav-link">Real-Life Applications</a></li>
+            <li><a href="#sec4" class="nav-link">Organizing Data with Matrices</a></li>
+
+            <!-- SECTION GROUP 2 -->
+            <h3>Types of Matrices</h3>
+            <li><a href="#sec5" class="nav-link">Overview of Matrix Types</a></li>
+            <li><a href="#sec6" class="nav-link">Row & Column Matrix</a></li>
+            <li><a href="#sec7" class="nav-link">Square & Rectangular Matrix</a></li>
+            <li><a href="#sec8" class="nav-link">Zero & Identity Matrix</a></li>
+            <li><a href="#sec9" class="nav-link">Diagonal & Scalar Matrix</a></li>
+
+            <!-- SECTION GROUP 3 -->
+            <h3>Matrix Operations</h3>
+            <li><a href="#sec10" class="nav-link">Addition & Subtraction</a></li>
+            <li><a href="#sec11" class="nav-link">Scalar Multiplication</a></li>
+            <li><a href="#sec12" class="nav-link">Matrix Multiplication</a></li>
+            <li><a href="#sec13" class="nav-link">Transpose of a Matrix</a></li>
+
+            <!-- SECTION GROUP 4 -->
+            <h3>Determinants</h3>
+            <li><a href="#sec14" class="nav-link">What is a Determinant?</a></li>
+            <li><a href="#sec15" class="nav-link">Determinant of 2×2</a></li>
+            <li><a href="#sec16" class="nav-link">Determinant of 3×3</a></li>
+
+            <!-- SECTION GROUP 5 -->
+            <h3>Inverse Matrices</h3>
+            <li><a href="#sec17" class="nav-link">Introduction to Inverses</a></li>
+            <li><a href="#sec18" class="nav-link">Finding Inverse of 2×2</a></li>
+
+            <!-- SECTION GROUP 6 -->
+            <h3>Systems of Equations</h3>
+            <li><a href="#sec19" class="nav-link">Matrix Form of Systems</a></li>
+            <li><a href="#sec20" class="nav-link">Solving Systems Using Matrices</a></li>
+
+        </ul>
+        </nav>
+    </aside>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="content">
+
+        <!-- Create placeholders for all 20 sections -->
+        <section id="sec1" class="content-section"></section>
+        <section id="sec2" class="content-section"></section>
+        <section id="sec3" class="content-section"></section>
+        <section id="sec4" class="content-section"></section>
+
+        <section id="sec5" class="content-section"></section>
+        <section id="sec6" class="content-section"></section>
+        <section id="sec7" class="content-section"></section>
+        <section id="sec8" class="content-section"></section>
+        <section id="sec9" class="content-section"></section>
+
+        <section id="sec10" class="content-section"></section>
+        <section id="sec11" class="content-section"></section>
+        <section id="sec12" class="content-section"></section>
+        <section id="sec13" class="content-section"></section>
+
+        <section id="sec14" class="content-section"></section>
+        <section id="sec15" class="content-section"></section>
+        <section id="sec16" class="content-section"></section>
+
+        <section id="sec17" class="content-section"></section>
+        <section id="sec18" class="content-section"></section>
+
+        <section id="sec19" class="content-section"></section>
+        <section id="sec20" class="content-section"></section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

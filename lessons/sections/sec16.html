@@ -1,0 +1,145 @@
+<h2>Determinant of 3×3</h2>
+
+<p>
+    Calculating the determinant of a <strong>3×3 matrix</strong> is more involved than the 2×2 case, but it follows a logical pattern that builds on what you already know. 
+    The most common method uses <strong>expansion by minors</strong> (also called cofactor expansion), which breaks down the 3×3 determinant into 2×2 determinants that you already know how to calculate. 
+    Once you understand this method, you'll be able to find determinants of any 3×3 matrix.<br><br>
+</p>
+
+<p>
+    For a 3×3 matrix:<br><br>
+</p>
+
+<p style="text-align:center;">
+    <strong>
+        \( A = \begin{bmatrix}
+            a & b & c \\
+            d & e & f \\
+            g & h & i
+        \end{bmatrix} \)
+    </strong>
+    <br><br>
+</p>
+
+<p>
+    The determinant can be calculated using expansion along the first row:<br><br>
+</p>
+
+<p style="text-align:center;">
+    <strong>
+        \( \det(A) = a(ei - fh) - b(di - fg) + c(dh - eg) \)
+    </strong>
+    <br><br>
+</p>
+
+<p>
+    This formula might look complicated, but it follows a clear pattern. 
+    You take each element in the first row (a, b, c), multiply it by the determinant of the 2×2 matrix that remains when you remove that element's row and column, and alternate signs (+, -, +). 
+    The 2×2 determinants are called <strong>minors</strong>.<br><br>
+</p>
+
+<p>
+    Here's a step-by-step breakdown. 
+    For element <strong>a</strong>, remove the first row and first column, leaving the 2×2 matrix with entries e, f, h, i. 
+    Its determinant is ei - fh. 
+    Multiply a by this: a(ei - fh).<br><br>
+</p>
+
+<p>
+    For element <strong>b</strong>, remove the first row and second column, leaving d, f, g, i. 
+    Its determinant is di - fg. 
+    Multiply b by this and change the sign: -b(di - fg).<br><br>
+</p>
+
+<p>
+    For element <strong>c</strong>, remove the first row and third column, leaving d, e, g, h. 
+    Its determinant is dh - eg. 
+    Multiply c by this: +c(dh - eg).<br><br>
+</p>
+
+<p>
+    Here's a concrete numerical example:<br><br>
+</p>
+
+<p style="text-align:center;">
+    <strong>
+        \( \det\left( \begin{bmatrix}
+            1 & 2 & 3 \\
+            4 & 5 & 6 \\
+            7 & 8 & 9
+        \end{bmatrix} \right) = 1(5×9 - 6×8) - 2(4×9 - 6×7) + 3(4×8 - 5×7) \)
+    </strong>
+    <br><br>
+</p>
+
+<p>
+    Calculating each part:<br><br>
+</p>
+
+<p style="text-align:center;">
+    <strong>
+        \( = 1(45 - 48) - 2(36 - 42) + 3(32 - 35) \)
+    </strong>
+    <br><br>
+</p>
+
+<p style="text-align:center;">
+    <strong>
+        \( = 1(-3) - 2(-6) + 3(-3) \)
+    </strong>
+    <br><br>
+</p>
+
+<p style="text-align:center;">
+    <strong>
+        \( = -3 + 12 - 9 = 0 \)
+    </strong>
+    <br><br>
+</p>
+
+<p>
+    So the determinant is 0, meaning this matrix is not invertible. 
+    Notice how we used the 2×2 determinant formula three times, once for each element in the first row.<br><br>
+</p>
+
+<p>
+    There's also a method called the <strong>Sarrus rule</strong> or <strong>diagonal method</strong> that some people find easier to remember. 
+    You write the first two columns again to the right of the matrix, then multiply along diagonals. 
+    However, this method only works for 3×3 matrices, while expansion by minors works for any size, so it's worth learning the general method.<br><br>
+</p>
+
+<p>
+    Here are some tips for calculating 3×3 determinants:<br><br>
+</p>
+<ul style="margin-bottom: 2em;">
+    <li>You can expand along <strong>any row or column</strong> — choose one with zeros if possible to simplify calculations</li>
+    <li>Remember to <strong>alternate signs</strong>: +, -, + for the first row (or -, +, - if you start with -)</li>
+    <li>The sign pattern follows a checkerboard: the (i,j) position has sign (-1)<sup>i+j</sup></li>
+    <li>If a row or column has zeros, expand along that row/column to reduce work</li>
+    <li>Double-check your 2×2 determinant calculations</li>
+    <li>Be careful with negative signs when subtracting</li>
+</ul>
+
+<p>
+    Understanding 3×3 determinants is important because they appear in many applications. 
+    In <strong>3D graphics</strong>, they're used to determine volumes and orientations. 
+    In <strong>physics</strong>, they appear in cross products and calculating moments. 
+    In <strong>engineering</strong>, they're used in solving systems of three equations. 
+    The geometric interpretation is that the absolute value of the determinant represents the volume of a parallelepiped (a 3D shape like a slanted box) formed by the three column vectors.<br><br>
+</p>
+
+<p>
+    Practice is essential for mastering 3×3 determinants. 
+    Start with simple matrices, work through the calculations step by step, and gradually try more complex examples. 
+    Once you're comfortable with 3×3, you'll have the skills to understand determinants of even larger matrices, which use the same expansion method.<br><br>
+</p>
+
+<hr style="margin-top: 2em;">
+
+<p style="font-size: 0.9em; color: #777; font-style: italic;">
+    <strong>References:</strong><br>
+    <a href="https://www.khanacademy.org/math/linear-algebra/matrix-transformations/inverse-of-matrices/v/linear-algebra-determinant-of-a-3x3-matrix" target="_blank">Khan Academy. "Determinant of a 3×3 Matrix."</a><br>
+    <a href="https://www.mathsisfun.com/algebra/matrix-determinant.html" target="_blank">Math is Fun. "3×3 Determinant."</a><br>
+    <a href="https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/readings/" target="_blank">MIT OpenCourseWare. "Determinants and Cofactors."</a>
+</p>
+

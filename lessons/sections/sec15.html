@@ -1,0 +1,138 @@
+<h2>Determinant of 2×2</h2>
+
+<p>
+    Calculating the determinant of a <strong>2×2 matrix</strong> is the simplest case and a great place to start learning about determinants. 
+    The formula is straightforward and easy to remember, making it an excellent introduction to this important concept. 
+    Once you master the 2×2 case, you'll have a solid foundation for understanding determinants of larger matrices.<br><br>
+</p>
+
+<p>
+    For a 2×2 matrix, the determinant is calculated using a simple formula involving the four entries. 
+    If you have a matrix:<br><br>
+</p>
+
+<p style="text-align:center;">
+    <strong>
+        \( A = \begin{bmatrix}
+            a & b \\
+            c & d
+        \end{bmatrix} \)
+    </strong>
+    <br><br>
+</p>
+
+<p>
+    Then the determinant is:<br><br>
+</p>
+
+<p style="text-align:center;">
+    <strong>
+        \( \det(A) = ad - bc \)
+    </strong>
+    <br><br>
+</p>
+
+<p>
+    In words, you multiply the entries on the <strong>main diagonal</strong> (top-left to bottom-right: a and d) and subtract the product of the entries on the <strong>other diagonal</strong> (top-right to bottom-left: b and c). 
+    This is often remembered as "ad minus bc" or described as the "cross product" of the diagonals.<br><br>
+</p>
+
+<p>
+    Here's a concrete example:<br><br>
+</p>
+
+<p style="text-align:center;">
+    <strong>
+        \( \det\left( \begin{bmatrix}
+            3 & 5 \\
+            2 & 4
+        \end{bmatrix} \right) = (3)(4) - (5)(2) = 12 - 10 = 2 \)
+    </strong>
+    <br><br>
+</p>
+
+<p>
+    Notice how we multiply 3×4 (the main diagonal) and subtract 5×2 (the other diagonal). 
+    The result is 2, which means this matrix has a non-zero determinant, so it's invertible. 
+    If the result had been 0, the matrix would not have an inverse.<br><br>
+</p>
+
+<p>
+    Here's another example with a negative result:<br><br>
+</p>
+
+<p style="text-align:center;">
+    <strong>
+        \( \det\left( \begin{bmatrix}
+            1 & 3 \\
+            4 & 2
+        \end{bmatrix} \right) = (1)(2) - (3)(4) = 2 - 12 = -10 \)
+    </strong>
+    <br><br>
+</p>
+
+<p>
+    The negative determinant (-10) tells us that this transformation would flip or reverse the orientation of shapes, in addition to scaling them. 
+    The absolute value (10) tells us about the scaling factor.<br><br>
+</p>
+
+<p>
+    One special case to remember is when the determinant equals zero. 
+    For example:<br><br>
+</p>
+
+<p style="text-align:center;">
+    <strong>
+        \( \det\left( \begin{bmatrix}
+            2 & 4 \\
+            1 & 2
+        \end{bmatrix} \right) = (2)(2) - (4)(1) = 4 - 4 = 0 \)
+    </strong>
+    <br><br>
+</p>
+
+<p>
+    When the determinant is zero, the matrix is <strong>singular</strong> (not invertible). 
+    This means the rows (or columns) are linearly dependent — one is a multiple of the other. 
+    In this case, the second row [1, 2] is half of the first row [2, 4]. 
+    Geometrically, a zero determinant means the transformation collapses the area to zero, squashing everything into a line or point.<br><br>
+</p>
+
+<p>
+    The 2×2 determinant formula is easy to visualize. 
+    You can think of it as finding the area of a parallelogram formed by the two column vectors (or row vectors) of the matrix. 
+    If the vectors point in the same direction (making them linearly dependent), the area is zero. 
+    If they point in different directions, the area is the absolute value of the determinant.<br><br>
+</p>
+
+<p>
+    Here are some tips for calculating 2×2 determinants:<br><br>
+</p>
+<ul style="margin-bottom: 2em;">
+    <li>Always use the formula: <strong>ad - bc</strong> (main diagonal minus other diagonal)</li>
+    <li>Be careful with signs — subtracting bc means you're subtracting, not adding</li>
+    <li>If the result is zero, the matrix is not invertible</li>
+    <li>The absolute value tells you the scaling factor; the sign tells you about orientation</li>
+    <li>Practice with different numbers to build confidence</li>
+</ul>
+
+<p>
+    Understanding the 2×2 determinant is crucial because it's the building block for calculating determinants of larger matrices. 
+    Many methods for finding 3×3 determinants (and larger) involve breaking them down into 2×2 determinants. 
+    So mastering this simple case prepares you for more complex calculations.<br><br>
+</p>
+
+<p>
+    In applications, 2×2 determinants appear frequently in solving systems of two equations with two unknowns, analyzing 2D transformations, and working with 2×2 matrices in various contexts. 
+    The simplicity of the formula makes it easy to use in calculations and helps build intuition about what determinants represent.<br><br>
+</p>
+
+<hr style="margin-top: 2em;">
+
+<p style="font-size: 0.9em; color: #777; font-style: italic;">
+    <strong>References:</strong><br>
+    <a href="https://www.khanacademy.org/math/linear-algebra/matrix-transformations/inverse-of-matrices/v/linear-algebra-determinant-of-a-2x2-matrix" target="_blank">Khan Academy. "Determinant of a 2×2 Matrix."</a><br>
+    <a href="https://www.mathsisfun.com/algebra/matrix-determinant.html" target="_blank">Math is Fun. "2×2 Determinant."</a><br>
+    <a href="https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/readings/" target="_blank">MIT OpenCourseWare. "Determinants."</a>
+</p>
+

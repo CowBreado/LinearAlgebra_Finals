@@ -1,0 +1,198 @@
+<h2>Finding Inverse of 2×2</h2>
+
+<p>
+    Finding the inverse of a <strong>2×2 matrix</strong> is straightforward thanks to a simple formula that makes this operation much easier than for larger matrices. 
+    Once you learn this formula and understand when it applies, you'll be able to quickly find inverses of 2×2 matrices, which is useful for solving systems of two equations and understanding the concept of matrix inversion in general.<br><br>
+</p>
+
+<p>
+    For a 2×2 matrix:<br><br>
+</p>
+
+<p style="text-align:center;">
+    <strong>
+        \( A = \begin{bmatrix}
+            a & b \\
+            c & d
+        \end{bmatrix} \)
+    </strong>
+    <br><br>
+</p>
+
+<p>
+    The inverse is given by the formula:<br><br>
+</p>
+
+<p style="text-align:center;">
+    <strong>
+        \( A^{-1} = \frac{1}{ad - bc} \begin{bmatrix}
+            d & -b \\
+            -c & a
+        \end{bmatrix} \)
+    </strong>
+    <br><br>
+</p>
+
+<p>
+    Notice that ad - bc is exactly the <strong>determinant</strong> of the matrix! 
+    So this formula can also be written as:<br><br>
+</p>
+
+<p style="text-align:center;">
+    <strong>
+        \( A^{-1} = \frac{1}{\det(A)} \begin{bmatrix}
+            d & -b \\
+            -c & a
+        \end{bmatrix} \)
+    </strong>
+    <br><br>
+</p>
+
+<p>
+    This immediately shows why a matrix needs a non-zero determinant to have an inverse — you can't divide by zero! 
+    If ad - bc = 0, then the denominator is zero and the inverse doesn't exist.<br><br>
+</p>
+
+<p>
+    The pattern in the formula is easy to remember: 
+    you swap the positions of a and d (the main diagonal entries), change the signs of b and c (the off-diagonal entries), and divide everything by the determinant. 
+    This gives you the inverse matrix.<br><br>
+</p>
+
+<p>
+    Here's a concrete example. 
+    Let's find the inverse of:<br><br>
+</p>
+
+<p style="text-align:center;">
+    <strong>
+        \( A = \begin{bmatrix}
+            3 & 1 \\
+            2 & 4
+        \end{bmatrix} \)
+    </strong>
+    <br><br>
+</p>
+
+<p>
+    First, calculate the determinant: det(A) = (3)(4) - (1)(2) = 12 - 2 = 10. 
+    Since the determinant is not zero, the inverse exists.<br><br>
+</p>
+
+<p>
+    Now apply the formula. 
+    Swap a and d (3 and 4), change signs of b and c (1 becomes -1, 2 becomes -2):<br><br>
+</p>
+
+<p style="text-align:center;">
+    <strong>
+        \( A^{-1} = \frac{1}{10} \begin{bmatrix}
+            4 & -1 \\
+            -2 & 3
+        \end{bmatrix} = \begin{bmatrix}
+            \frac{4}{10} & -\frac{1}{10} \\
+            -\frac{2}{10} & \frac{3}{10}
+        \end{bmatrix} = \begin{bmatrix}
+            \frac{2}{5} & -\frac{1}{10} \\
+            -\frac{1}{5} & \frac{3}{10}
+        \end{bmatrix} \)
+    </strong>
+    <br><br>
+</p>
+
+<p>
+    You can verify this is correct by multiplying A × A<sup>-1</sup> and checking that you get the identity matrix:<br><br>
+</p>
+
+<p style="text-align:center;">
+    <strong>
+        \( \begin{bmatrix}
+            3 & 1 \\
+            2 & 4
+        \end{bmatrix} \times \begin{bmatrix}
+            \frac{2}{5} & -\frac{1}{10} \\
+            -\frac{1}{5} & \frac{3}{10}
+        \end{bmatrix} = \begin{bmatrix}
+            1 & 0 \\
+            0 & 1
+        \end{bmatrix} \)
+    </strong>
+    <br><br>
+</p>
+
+<p>
+    Perfect! The result is the identity matrix, confirming that we found the correct inverse.<br><br>
+</p>
+
+<p>
+    Here's another example with a simpler result. 
+    Find the inverse of:<br><br>
+</p>
+
+<p style="text-align:center;">
+    <strong>
+        \( B = \begin{bmatrix}
+            2 & 3 \\
+            1 & 2
+        \end{bmatrix} \)
+    </strong>
+    <br><br>
+</p>
+
+<p>
+    Determinant: det(B) = (2)(2) - (3)(1) = 4 - 3 = 1.<br><br>
+</p>
+
+<p>
+    Inverse:<br><br>
+</p>
+
+<p style="text-align:center;">
+    <strong>
+        \( B^{-1} = \frac{1}{1} \begin{bmatrix}
+            2 & -3 \\
+            -1 & 2
+        \end{bmatrix} = \begin{bmatrix}
+            2 & -3 \\
+            -1 & 2
+        \end{bmatrix} \)
+    </strong>
+    <br><br>
+</p>
+
+<p>
+    When the determinant is 1, you don't need to divide, making the calculation even simpler!<br><br>
+</p>
+
+<p>
+    Here are some key points to remember:<br><br>
+</p>
+<ul style="margin-bottom: 2em;">
+    <li>Always check the <strong>determinant first</strong> — if it's zero, the inverse doesn't exist</li>
+    <li>The formula: swap diagonal entries (a and d), negate off-diagonal entries (b and c), divide by determinant</li>
+    <li>Remember to divide <strong>every entry</strong> by the determinant, not just some of them</li>
+    <li>Always verify your answer by checking that A × A<sup>-1</sup> = I</li>
+    <li>If you get fractions, it's often cleaner to leave them as fractions rather than decimals</li>
+</ul>
+
+<p>
+    The 2×2 inverse formula is particularly useful for solving systems of two linear equations. 
+    If you have a system represented by Ax = b, and A is a 2×2 invertible matrix, you can solve it by calculating x = A<sup>-1</sup>b. 
+    This method is efficient and gives you insight into how matrix inverses relate to solving equations.<br><br>
+</p>
+
+<p>
+    Mastering the 2×2 inverse formula gives you a solid foundation for understanding matrix inverses in general. 
+    While larger matrices require more complex methods (like row reduction or adjugate matrices), the core concept remains the same: 
+    find a matrix that, when multiplied by the original, gives the identity matrix.<br><br>
+</p>
+
+<hr style="margin-top: 2em;">
+
+<p style="font-size: 0.9em; color: #777; font-style: italic;">
+    <strong>References:</strong><br>
+    <a href="https://www.khanacademy.org/math/linear-algebra/matrix-transformations/inverse-of-matrices/v/linear-algebra-formula-for-2x2-inverse" target="_blank">Khan Academy. "Formula for 2×2 Inverse."</a><br>
+    <a href="https://www.mathsisfun.com/algebra/matrix-inverse.html" target="_blank">Math is Fun. "Inverse of a 2×2 Matrix."</a><br>
+    <a href="https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/readings/" target="_blank">MIT OpenCourseWare. "Matrix Inverses."</a>
+</p>
+

@@ -1,0 +1,46 @@
+
+    <!-- MAIN CONTENT -->
+    <main class="content">
+        
+        
+        <section id="sec1">
+
+            </section>
+
+
+        <section id="sec2">
+        <h2>What is a Matrix?</h2>
+        <p>
+            The matrix is a rectangular array of numbers in the element form where symbols, or expressions arranged in rows and columns. Mathematically, it is represented as:
+
+            Here:
+            m represents the number of rows.
+            n represents the number of columns.
+            a<sub>ij</sub> represents the element in the i<sup>th</sup> row and i<sup>th</sup>column.
+
+            Example:
+            A 2×2 matrix looks like:
+        </p>
+        </section>
+
+        <section id="sec3">
+        <h2>Real-life Example</h2>
+        <p>Lorem ipsum dolor sit amet...</p>
+        </section>
+
+        <section id="sec4">
+        <h2>Simple Math Operation</h2>
+        <p>Lorem ipsum dolor sit amet...</p>
+        </section>
+
+        <section id="sec5">
+        <h2>Determinant</h2>
+        <p>Lorem ipsum dolor sit amet...</p>
+        </section>
+
+        <section id="sec6">
+        <h2>Vector Scalar</h2>
+        <p>Lorem ipsum dolor sit amet...</p>
+        </section>
+
+    </main>

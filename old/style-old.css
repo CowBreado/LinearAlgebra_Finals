@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
@@ -5,15 +6,9 @@
   --colorprimary: #f5f5f5;
   --colorsecondary: #f5f5f5;
   --coloraccent: #212631;
-  --h1: bold 48px/72px var(--ff);
+  --h1: bold 52px/72px var(--ff);
   --p: 18px/30px var(--ff);
   --li: 18px/30px var(--ff);
-}
-
-.card-content { 
-    /* Allow each content block to grow and use available space on large screens */
-    flex: 1 1 320px; 
-    max-width: none;
 }
 
 html{
@@ -63,10 +58,7 @@ a{
     display: flex;
     background-color: #212631;
     box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-    
 }
-
-
 .top-nav-bar-item{
     align-content: center;
     align-items:center;
@@ -76,19 +68,13 @@ a{
     justify-content: end;
 }
 
-
-
 .card-cus{
     /*Makes the cards flexible */
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 15vh;
     width: 100%;
-    max-width: 1200px;
-
+    max-width: 150vh;
+    padding: 9vh;
+    padding-left: 20vh;
+    padding-right: 20vh;
     margin: auto;
 
     background-color: #212631;
@@ -101,7 +87,7 @@ a{
     width: 100%;
     max-width: 480px;
     max-height: 800px;
-    margin-left: 0;
+    margin-left: 10%;
 }
 
 .button{
@@ -134,82 +120,4 @@ a{
     border-width: 1px;
     border-color:#f5f5f5;
     border-style:solid;
-}
-
-/* ================================
-   Responsive Layout
-   ================================ */
-
-/* Tablets and smaller laptops */
-@media (max-width: 1024px) {
-  .card-cus {
-    flex-direction: column;
-    align-items: center;
-    padding: 6vh 4vw;
-  }
-
-  .card-content {
-    max-width: 100%;
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-
-  .image {
-    margin-left: 0;
-    margin-top: 1.5rem;
-    max-width: 360px;
-  }
-}
-
-/* Tablets & large phones (portrait) */
-@media (max-width: 768px) {
-  .top-nav-bar {
-    flex-wrap: wrap;
-    padding: 0.75rem 1rem;
-    gap: 0.5rem;
-  }
-
-  .top-nav-bar-item {
-    justify-content: center;
-    margin-top: 0.25rem;
-  }
-
-  .top-nav-bar a {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-  }
-
-  .card-cus {
-    padding: 4vh 5vw;
-  }
-
-  .empty-div {
-    height: 18vh;
-  }
-}
-
-/* Small phones */
-@media (max-width: 480px) {
-  h1 {
-    font-size: clamp(1.6rem, 7vw, 2rem);
-    line-height: 1.2;
-  }
-
-  p,
-  li {
-    font-size: 0.95rem;
-    line-height: 1.5;
-  }
-
-  a {
-    padding: 0.5rem 0.75rem;
-  }
-
-  .card-cus {
-    padding: 3vh 4vw;
-  }
-
-  .image {
-    max-width: 280px;
-  }
 }

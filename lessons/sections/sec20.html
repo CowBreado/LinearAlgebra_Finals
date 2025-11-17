@@ -1,0 +1,158 @@
+<h2>Solving Systems Using Matrices</h2>
+
+<p>
+    Once you've written a system of equations in matrix form (Ax = b), you can use matrix operations to solve it efficiently. 
+    There are several methods for solving systems using matrices, each with its own advantages. 
+    Understanding these methods gives you powerful tools for tackling problems that would be difficult or time-consuming using traditional algebraic techniques.<br><br>
+</p>
+
+<p>
+    The most direct method, when it's possible, is to use the <strong>matrix inverse</strong>. 
+    If the coefficient matrix A is invertible (has a non-zero determinant), you can solve the system by calculating x = A<sup>-1</sup>b. 
+    This method is particularly elegant for 2×2 systems, where you can use the simple inverse formula you learned earlier.<br><br>
+</p>
+
+<p>
+    For example, consider the system:<br><br>
+</p>
+
+<p style="text-align:center;">
+    <strong>
+        3x + 2y = 7<br>
+        5x - y = 1
+    </strong>
+    <br><br>
+</p>
+
+<p>
+    In matrix form: Ax = b, where:<br><br>
+</p>
+
+<p style="text-align:center;">
+    <strong>
+        \( A = \begin{bmatrix}
+            3 & 2 \\
+            5 & -1
+        \end{bmatrix}, \quad x = \begin{bmatrix}
+            x \\
+            y
+        \end{bmatrix}, \quad b = \begin{bmatrix}
+            7 \\
+            1
+        \end{bmatrix} \)
+    </strong>
+    <br><br>
+</p>
+
+<p>
+    First, check if A is invertible by finding the determinant: det(A) = (3)(-1) - (2)(5) = -3 - 10 = -13. 
+    Since the determinant is not zero, A is invertible.<br><br>
+</p>
+
+<p>
+    Find the inverse:<br><br>
+</p>
+
+<p style="text-align:center;">
+    <strong>
+        \( A^{-1} = \frac{1}{-13} \begin{bmatrix}
+            -1 & -2 \\
+            -5 & 3
+        \end{bmatrix} = \begin{bmatrix}
+            \frac{1}{13} & \frac{2}{13} \\
+            \frac{5}{13} & -\frac{3}{13}
+        \end{bmatrix} \)
+    </strong>
+    <br><br>
+</p>
+
+<p>
+    Now solve for x:<br><br>
+</p>
+
+<p style="text-align:center;">
+    <strong>
+        \( x = A^{-1}b = \begin{bmatrix}
+            \frac{1}{13} & \frac{2}{13} \\
+            \frac{5}{13} & -\frac{3}{13}
+        \end{bmatrix} \begin{bmatrix}
+            7 \\
+            1
+        \end{bmatrix} = \begin{bmatrix}
+            \frac{7}{13} + \frac{2}{13} \\
+            \frac{35}{13} - \frac{3}{13}
+        \end{bmatrix} = \begin{bmatrix}
+            \frac{9}{13} \\
+            \frac{32}{13}
+        \end{bmatrix} \)
+    </strong>
+    <br><br>
+</p>
+
+<p>
+    So x = 9/13 and y = 32/13. 
+    You can verify this solution by substituting back into the original equations.<br><br>
+</p>
+
+<p>
+    Another powerful method is <strong>Gaussian elimination</strong> (also called row reduction), which uses elementary row operations to transform the system into an easier form. 
+    This method works by creating an <strong>augmented matrix</strong> [A | b] that combines the coefficient matrix and constant vector, then performing row operations to get it into row-echelon or reduced row-echelon form. 
+    This method is more general and works even when the matrix is not invertible.<br><br>
+</p>
+
+<p>
+    The augmented matrix for our example would be:<br><br>
+</p>
+
+<p style="text-align:center;">
+    <strong>
+        \( [A | b] = \left[ \begin{array}{cc|c}
+            3 & 2 & 7 \\
+            5 & -1 & 1
+        \end{array} \right] \)
+    </strong>
+    <br><br>
+</p>
+
+<p>
+    Using row operations, you can transform this into a form where the solution is obvious. 
+    The goal is to get ones on the diagonal and zeros below (and optionally above) the diagonal.<br><br>
+</p>
+
+<p>
+    Here are the key advantages of matrix methods:<br><br>
+</p>
+<ul style="margin-bottom: 2em;">
+    <li><strong>Systematic approach</strong> — Follow a clear procedure rather than ad-hoc algebraic manipulation</li>
+    <li><strong>Scalability</strong> — Works well for systems with many equations and variables</li>
+    <li><strong>Computational efficiency</strong> — Can be easily programmed and solved by computers</li>
+    <li><strong>General applicability</strong> — Methods like Gaussian elimination work even when inverses don't exist</li>
+    <li><strong>Clear structure</strong> — Matrix form makes the system's properties (like number of solutions) easier to analyze</li>
+</ul>
+
+<p>
+    When using matrix methods, it's important to check your work. 
+    You can verify a solution by substituting it back into the original equations, or by checking that Ax = b. 
+    For the inverse method, you can verify that A × A<sup>-1</sup> = I.<br><br>
+</p>
+
+<p>
+    Matrix methods are particularly valuable for larger systems. 
+    While you might solve a 2×2 system by hand using substitution, a 5×5 or 10×10 system would be extremely tedious without matrix methods. 
+    Computer programs that solve systems of equations use these matrix techniques because they're systematic and efficient.<br><br>
+</p>
+
+<p>
+    Understanding how to solve systems using matrices connects all the concepts you've learned — matrix operations, determinants, inverses, and the structure of linear systems. 
+    This integration of concepts shows why linear algebra is such a powerful and widely-used branch of mathematics, with applications spanning science, engineering, economics, and technology.<br><br>
+</p>
+
+<hr style="margin-top: 2em;">
+
+<p style="font-size: 0.9em; color: #777; font-style: italic;">
+    <strong>References:</strong><br>
+    <a href="https://www.khanacademy.org/math/linear-algebra/vectors-and-spaces/matrices-elimination/v/matrices-reduced-row-echelon-form-1" target="_blank">Khan Academy. "Solving Systems with Matrices."</a><br>
+    <a href="https://www.mathsisfun.com/algebra/systems-linear-equations-matrices.html" target="_blank">Math is Fun. "Solving Systems Using Matrices."</a><br>
+    <a href="https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/readings/" target="_blank">MIT OpenCourseWare. "Solving Linear Systems."</a>
+</p>
+

@@ -1,0 +1,86 @@
+<h2>Introduction to Inverses</h2>
+
+<p>
+    Just as division is the inverse operation of multiplication for regular numbers, <strong>matrix inversion</strong> is the inverse operation of matrix multiplication. 
+    The concept of an inverse matrix is fundamental to linear algebra and appears in countless applications, from solving systems of equations to computer graphics and data analysis. 
+    Understanding what an inverse matrix is and when it exists will open up many powerful problem-solving techniques.<br><br>
+</p>
+
+<p>
+    The <strong>inverse</strong> of a square matrix A is another matrix, usually written as A<sup>-1</sup>, that has a very special property: 
+    when you multiply A by its inverse (in either order), you get the <strong>identity matrix</strong> I. 
+    In other words, A × A<sup>-1</sup> = I and A<sup>-1</sup> × A = I. 
+    This is exactly like how multiplying a number by its reciprocal gives you 1: 5 × (1/5) = 1.<br><br>
+</p>
+
+<p>
+    However, there's a crucial difference: <strong>not all matrices have inverses</strong>. 
+    Only square matrices can potentially have inverses, and even among square matrices, not all of them do. 
+    A matrix that has an inverse is called <strong>invertible</strong> or <strong>non-singular</strong>. 
+    A matrix that does not have an inverse is called <strong>non-invertible</strong> or <strong>singular</strong>.<br><br>
+</p>
+
+<p>
+    How do you know if a matrix has an inverse? 
+    The key is the <strong>determinant</strong>. 
+    A square matrix has an inverse if and only if its determinant is <strong>not zero</strong>. 
+    If det(A) = 0, then A does not have an inverse. 
+    If det(A) ≠ 0, then A has an inverse. 
+    This makes the determinant a quick and powerful test for invertibility.<br><br>
+</p>
+
+<p>
+    Here's why the inverse is so useful: 
+    If you have a matrix equation like Ax = b, and A is invertible, you can solve for x by multiplying both sides by A<sup>-1</sup>. 
+    This gives you x = A<sup>-1</sup>b, which is a direct way to find the solution. 
+    This is much more efficient than other methods, especially for large systems of equations.<br><br>
+</p>
+
+<p>
+    The inverse matrix has several important properties:<br><br>
+</p>
+<ul style="margin-bottom: 2em;">
+    <li><strong>Uniqueness</strong> — If an inverse exists, it is unique (there's only one inverse for a given matrix)</li>
+    <li><strong>Double inverse</strong> — (A<sup>-1</sup>)<sup>-1</sup> = A (the inverse of the inverse is the original matrix)</li>
+    <li><strong>Product property</strong> — (AB)<sup>-1</sup> = B<sup>-1</sup>A<sup>-1</sup> (note the order reverses!)</li>
+    <li><strong>Transpose property</strong> — (A<sup>T</sup>)<sup>-1</sup> = (A<sup>-1</sup>)<sup>T</sup></li>
+    <li><strong>Determinant property</strong> — det(A<sup>-1</sup>) = 1/det(A)</li>
+    <li><strong>Identity property</strong> — I<sup>-1</sup> = I (the identity matrix is its own inverse)</li>
+</ul>
+
+<p>
+    One important thing to remember is that when you invert a product, the order reverses. 
+    Just like (AB)<sup>T</sup> = B<sup>T</sup>A<sup>T</sup>, we have (AB)<sup>-1</sup> = B<sup>-1</sup>A<sup>-1</sup>. 
+    This is a common source of errors, so always be careful about the order when working with products of inverses.<br><br>
+</p>
+
+<p>
+    In geometric terms, if a matrix A represents a transformation (like rotating, scaling, or reflecting), then A<sup>-1</sup> represents the transformation that <strong>undoes</strong> what A does. 
+    For example, if A rotates a shape 30 degrees clockwise, then A<sup>-1</sup> rotates it 30 degrees counterclockwise, bringing it back to the original position. 
+    This is why A × A<sup>-1</sup> = I — applying a transformation and then its inverse brings you back to where you started (no change, which is what the identity matrix represents).<br><br>
+</p>
+
+<p>
+    In practical applications, inverse matrices are used extensively. 
+    In <strong>computer graphics</strong>, they're used to reverse transformations and calculate camera positions. 
+    In <strong>cryptography</strong>, they're used in encoding and decoding messages. 
+    In <strong>statistics</strong>, they appear in regression analysis and calculating variances. 
+    In <strong>engineering</strong>, they're used to solve systems of equations that model physical systems.<br><br>
+</p>
+
+<p>
+    Understanding inverse matrices gives you a powerful tool for solving problems. 
+    While calculating inverses can be computationally intensive for large matrices, the concept itself is straightforward: 
+    an inverse matrix undoes what the original matrix does. 
+    As you learn methods for finding inverses (especially for 2×2 matrices, which have a simple formula), you'll see how this concept applies to solving real-world problems.<br><br>
+</p>
+
+<hr style="margin-top: 2em;">
+
+<p style="font-size: 0.9em; color: #777; font-style: italic;">
+    <strong>References:</strong><br>
+    <a href="https://www.khanacademy.org/math/linear-algebra/matrix-transformations/inverse-of-matrices/v/linear-algebra-introduction-to-the-inverse-of-a-function" target="_blank">Khan Academy. "Introduction to Matrix Inverses."</a><br>
+    <a href="https://www.mathsisfun.com/algebra/matrix-inverse.html" target="_blank">Math is Fun. "Inverse of a Matrix."</a><br>
+    <a href="https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/readings/" target="_blank">MIT OpenCourseWare. "Matrix Inverses."</a>
+</p>
+

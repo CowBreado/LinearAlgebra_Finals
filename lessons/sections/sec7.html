@@ -1,0 +1,94 @@
+<h2>Square & Rectangular Matrix</h2>
+
+<p>
+    One of the most fundamental ways to classify matrices is by their <strong>shape</strong> — specifically, whether they have the same number of rows and columns or different numbers. 
+    This simple distinction leads to two important categories: <strong>square matrices</strong> and <strong>rectangular matrices</strong>. 
+    Understanding the difference between these types is crucial because many matrix operations only work with square matrices.<br><br>
+</p>
+
+<p>
+    A <strong>square matrix</strong> has the same number of rows and columns. 
+    Examples include 2×2, 3×3, 4×4, or any n×n matrix. 
+    Square matrices are special because they're the only type that can have certain properties like <strong>determinants</strong> and <strong>inverses</strong>. 
+    They also appear frequently in applications involving rotations, transformations, and systems of equations where the number of equations equals the number of unknowns.<br><br>
+</p>
+
+<p>
+    Here's an example of a 3×3 square matrix:<br><br>
+</p>
+
+<p style="text-align:center;">
+    <strong>
+        \( A = \begin{bmatrix}
+            a_{11} & a_{12} & a_{13} \\
+            a_{21} & a_{22} & a_{23} \\
+            a_{31} & a_{32} & a_{33}
+        \end{bmatrix} \)
+    </strong>
+    <br><br>
+</p>
+
+<p>
+    Notice how it forms a perfect square shape. 
+    The diagonal running from the top-left to bottom-right (a<sub>11</sub>, a<sub>22</sub>, a<sub>33</sub>) is called the <strong>main diagonal</strong>, and it plays an important role in many operations involving square matrices.<br><br>
+</p>
+
+<p>
+    A <strong>rectangular matrix</strong>, on the other hand, has a different number of rows and columns. 
+    Examples include 2×3, 3×5, 4×2, or any m×n matrix where m ≠ n. 
+    Rectangular matrices are very common in data analysis, where you might have different numbers of observations (rows) and variables (columns). 
+    They're also used in systems of equations where the number of equations doesn't match the number of variables.<br><br>
+</p>
+
+<p>
+    Here's an example of a 2×4 rectangular matrix:<br><br>
+</p>
+
+<p style="text-align:center;">
+    <strong>
+        \( B = \begin{bmatrix}
+            b_{11} & b_{12} & b_{13} & b_{14} \\
+            b_{21} & b_{22} & b_{23} & b_{24}
+        \end{bmatrix} \)
+    </strong>
+    <br><br>
+</p>
+
+<p>
+    The key difference in terms of operations is that <strong>only square matrices have determinants and inverses</strong>. 
+    You can add, subtract, and multiply rectangular matrices (following the rules for matrix operations), but concepts like the determinant and matrix inverse are defined only for square matrices. 
+    This is because these operations require the matrix to have certain symmetry properties that only square matrices possess.<br><br>
+</p>
+
+<p>
+    In real-world terms, think of square matrices like <strong>square tables</strong> where you have the same number of people sitting on each side. 
+    This symmetry allows for certain operations that wouldn't make sense with a rectangular table. 
+    Rectangular matrices are like <strong>rectangular tables</strong> — still useful, but with different properties and limitations.<br><br>
+</p>
+
+<p>
+    Here are some important points to remember:<br><br>
+</p>
+<ul style="margin-bottom: 2em;">
+    <li><strong>Square matrices</strong> (n×n) can have determinants and inverses</li>
+    <li><strong>Rectangular matrices</strong> (m×n where m≠n) cannot have determinants or inverses</li>
+    <li>Both types can be added, subtracted, and multiplied (following matrix operation rules)</li>
+    <li>Square matrices are common in transformations, rotations, and square systems of equations</li>
+    <li>Rectangular matrices are common in data tables, overdetermined/underdetermined systems, and data analysis</li>
+</ul>
+
+<p>
+    When you're working with matrices, always check whether you have a square or rectangular matrix first. 
+    This will tell you immediately which operations are possible and help you avoid trying to perform operations that only work with square matrices. 
+    Understanding this distinction is one of the first steps toward mastering matrix algebra.<br><br>
+</p>
+
+<hr style="margin-top: 2em;">
+
+<p style="font-size: 0.9em; color: #777; font-style: italic;">
+    <strong>References:</strong><br>
+    <a href="https://www.khanacademy.org/math/precalculus/x9e81a4f98389efdf:matrices/x9e81a4f98389efdf:matrices-as-transformations/a/types-of-matrices" target="_blank">Khan Academy. "Square and Rectangular Matrices."</a><br>
+    <a href="https://www.mathsisfun.com/algebra/matrix-introduction.html" target="_blank">Math is Fun. "Introduction to Matrices."</a><br>
+    <a href="https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/" target="_blank">MIT OpenCourseWare. "Linear Algebra."</a>
+</p>
+

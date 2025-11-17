@@ -1,0 +1,106 @@
+<h2>Diagonal & Scalar Matrix</h2>
+
+<p>
+    Some matrices have a special structure that makes them easier to work with and understand. 
+    <strong>Diagonal matrices</strong> and <strong>scalar matrices</strong> are two such types that appear frequently in mathematics and applications. 
+    They're called "diagonal" because their non-zero entries form a diagonal pattern, and this structure gives them useful properties that simplify many calculations.<br><br>
+</p>
+
+<p>
+    A <strong>diagonal matrix</strong> is a square matrix where all entries are zero except those on the <strong>main diagonal</strong> (the diagonal running from the top-left corner to the bottom-right corner). 
+    This means that in a diagonal matrix, the entry in row i, column j is zero whenever i ≠ j. 
+    Only the entries where the row number equals the column number can be non-zero.<br><br>
+</p>
+
+<p>
+    Here's an example of a 3×3 diagonal matrix:<br><br>
+</p>
+
+<p style="text-align:center;">
+    <strong>
+        \( D = \begin{bmatrix}
+            d_1 & 0 & 0 \\
+            0 & d_2 & 0 \\
+            0 & 0 & d_3
+        \end{bmatrix} \)
+    </strong>
+    <br><br>
+</p>
+
+<p>
+    Notice how all the entries off the diagonal are zero, and only the diagonal entries (d<sub>1</sub>, d<sub>2</sub>, d<sub>3</sub>) can have any values. 
+    This structure makes diagonal matrices particularly easy to work with. 
+    For example, raising a diagonal matrix to a power is simple — you just raise each diagonal entry to that power. 
+    Finding the determinant is also straightforward — it's just the product of all the diagonal entries.<br><br>
+</p>
+
+<p>
+    A <strong>scalar matrix</strong> is a special type of diagonal matrix where all the diagonal entries are the <strong>same number</strong>. 
+    In other words, it's like a diagonal matrix where d<sub>1</sub> = d<sub>2</sub> = d<sub>3</sub> = ... = k for some constant k. 
+    Scalar matrices are essentially the matrix equivalent of multiplying by a regular number.<br><br>
+</p>
+
+<p>
+    Here's an example of a 3×3 scalar matrix with the scalar value 5:<br><br>
+</p>
+
+<p style="text-align:center;">
+    <strong>
+        \( S = \begin{bmatrix}
+            5 & 0 & 0 \\
+            0 & 5 & 0 \\
+            0 & 0 & 5
+        \end{bmatrix} \)
+    </strong>
+    <br><br>
+</p>
+
+<p>
+    When you multiply a matrix by a scalar matrix, it's equivalent to multiplying the entire matrix by that scalar value. 
+    For example, multiplying any 3×3 matrix A by the scalar matrix S (with value 5) gives you 5A — every entry in A gets multiplied by 5. 
+    This is why they're called "scalar" matrices — they scale (multiply) everything by the same factor.<br><br>
+</p>
+
+<p>
+    The <strong>identity matrix</strong> you learned about earlier is actually a special case of a scalar matrix where the scalar value is 1. 
+    So the identity matrix is both a diagonal matrix and a scalar matrix with value 1. 
+    This connection helps you see how these different matrix types relate to each other.<br><br>
+</p>
+
+<p>
+    Here are some key properties and uses:<br><br>
+</p>
+<ul style="margin-bottom: 2em;">
+    <li><strong>Diagonal matrices</strong> — Non-zero entries only on the main diagonal; easy to raise to powers and find determinants</li>
+    <li><strong>Scalar matrices</strong> — All diagonal entries are the same; multiplying by a scalar matrix scales the entire matrix</li>
+    <li>Both are always square matrices</li>
+    <li>Determinant of a diagonal matrix = product of diagonal entries</li>
+    <li>Diagonal matrices are used in eigenvalue problems, scaling transformations, and simplifying calculations</li>
+</ul>
+
+<p>
+    In practical applications, diagonal matrices often represent <strong>scaling operations</strong> — stretching or compressing along different axes. 
+    For example, in computer graphics, a diagonal matrix might scale an image differently in the horizontal and vertical directions. 
+    If all the diagonal entries are the same (making it a scalar matrix), the scaling is uniform in all directions, like zooming in or out equally.<br><br>
+</p>
+
+<p>
+    One important property of diagonal matrices is that they <strong>commute</strong> with other diagonal matrices — meaning the order of multiplication doesn't matter. 
+    If D<sub>1</sub> and D<sub>2</sub> are both diagonal matrices, then D<sub>1</sub> × D<sub>2</sub> = D<sub>2</sub> × D<sub>1</sub>. 
+    This property doesn't hold for most matrices, which makes diagonal matrices particularly nice to work with.<br><br>
+</p>
+
+<p>
+    Understanding diagonal and scalar matrices gives you insight into how matrices can represent simple transformations and operations. 
+    They also serve as building blocks for understanding more complex matrix structures and operations that you'll encounter in advanced topics.<br><br>
+</p>
+
+<hr style="margin-top: 2em;">
+
+<p style="font-size: 0.9em; color: #777; font-style: italic;">
+    <strong>References:</strong><br>
+    <a href="https://www.khanacademy.org/math/precalculus/x9e81a4f98389efdf:matrices/x9e81a4f98389efdf:matrices-as-transformations/a/types-of-matrices" target="_blank">Khan Academy. "Diagonal and Scalar Matrices."</a><br>
+    <a href="https://mathworld.wolfram.com/DiagonalMatrix.html" target="_blank">Weisstein, E. W. "Diagonal Matrix." From MathWorld—A Wolfram Web Resource.</a><br>
+    <a href="https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/" target="_blank">MIT OpenCourseWare. "Linear Algebra."</a>
+</p>
+

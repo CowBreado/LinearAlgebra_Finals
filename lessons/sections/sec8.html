@@ -1,0 +1,104 @@
+<h2>Zero & Identity Matrix</h2>
+
+<p>
+    In regular arithmetic, the numbers <strong>0</strong> and <strong>1</strong> play special roles. 
+    Zero is the <strong>additive identity</strong> — adding zero to any number doesn't change it. 
+    One is the <strong>multiplicative identity</strong> — multiplying any number by one doesn't change it. 
+    Matrices have their own versions of these special numbers: the <strong>zero matrix</strong> and the <strong>identity matrix</strong>. 
+    Understanding these special matrices is essential because they behave predictably and are used frequently in calculations.<br><br>
+</p>
+
+<p>
+    A <strong>zero matrix</strong> (also called a <strong>null matrix</strong>) is a matrix where every single entry is zero. 
+    It's usually denoted by <strong>O</strong> or <strong>0</strong>. 
+    A zero matrix can be any size — you can have a 2×2 zero matrix, a 3×5 zero matrix, or any other dimensions. 
+    What makes it special is that when you add a zero matrix to any other matrix of the same size, you get the original matrix back, unchanged.<br><br>
+</p>
+
+<p>
+    Here's an example of a 3×3 zero matrix:<br><br>
+</p>
+
+<p style="text-align:center;">
+    <strong>
+        \( O = \begin{bmatrix}
+            0 & 0 & 0 \\
+            0 & 0 & 0 \\
+            0 & 0 & 0
+        \end{bmatrix} \)
+    </strong>
+    <br><br>
+</p>
+
+<p>
+    If you have a matrix A and add the zero matrix O to it, you get: A + O = A. 
+    This is exactly like adding zero to a regular number — it doesn't change anything. 
+    Similarly, multiplying any matrix by a zero matrix (of appropriate size) gives you a zero matrix, just like multiplying any number by zero gives you zero.<br><br>
+</p>
+
+<p>
+    An <strong>identity matrix</strong> is a square matrix that acts like the number 1 in multiplication. 
+    It's usually denoted by <strong>I</strong>. 
+    An identity matrix has 1's along the <strong>main diagonal</strong> (from top-left to bottom-right) and 0's everywhere else. 
+    The key property is that when you multiply any matrix by an identity matrix (of the appropriate size), you get the original matrix back.<br><br>
+</p>
+
+<p>
+    Here's an example of a 3×3 identity matrix:<br><br>
+</p>
+
+<p style="text-align:center;">
+    <strong>
+        \( I = \begin{bmatrix}
+            1 & 0 & 0 \\
+            0 & 1 & 0 \\
+            0 & 0 & 1
+        \end{bmatrix} \)
+    </strong>
+    <br><br>
+</p>
+
+<p>
+    If you multiply a matrix A by the identity matrix I, you get: A × I = A. 
+    Notice how the 1's are positioned — they form a diagonal line. 
+    This pattern ensures that when you multiply, each row of A gets multiplied by exactly one 1 (and zeros for everything else), which preserves the original values.<br><br>
+</p>
+
+<p>
+    Identity matrices come in different sizes, but they all follow the same pattern. 
+    A 2×2 identity matrix has 1's in positions (1,1) and (2,2), a 4×4 identity matrix has 1's in positions (1,1), (2,2), (3,3), and (4,4), and so on. 
+    The size of the identity matrix matters when multiplying — you need the right size to make the multiplication work correctly.<br><br>
+</p>
+
+<p>
+    Here are the key properties:<br><br>
+</p>
+<ul style="margin-bottom: 2em;">
+    <li><strong>Zero matrix (O)</strong> — All entries are zero; A + O = A and A × O = O</li>
+    <li><strong>Identity matrix (I)</strong> — 1's on main diagonal, 0's elsewhere; A × I = A and I × A = A</li>
+    <li>Both are square matrices (identity matrices are always square)</li>
+    <li>Identity matrices are used in finding matrix inverses: A × A<sup>-1</sup> = I</li>
+    <li>Zero matrices can be any size, but identity matrices are always square</li>
+</ul>
+
+<p>
+    In practical terms, think of the zero matrix like a <strong>blank slate</strong> — adding it doesn't change anything. 
+    The identity matrix is like a <strong>mirror</strong> in multiplication — it reflects back whatever you put into it unchanged. 
+    These matrices are particularly useful when solving equations, finding inverses, and performing transformations, because they provide predictable reference points in your calculations.<br><br>
+</p>
+
+<p>
+    When you learn about matrix inverses later, you'll see that the identity matrix plays a crucial role. 
+    The inverse of a matrix A is defined as the matrix that, when multiplied by A, gives you the identity matrix: A × A<sup>-1</sup> = I. 
+    This relationship is fundamental to many matrix operations and applications.<br><br>
+</p>
+
+<hr style="margin-top: 2em;">
+
+<p style="font-size: 0.9em; color: #777; font-style: italic;">
+    <strong>References:</strong><br>
+    <a href="https://www.khanacademy.org/math/precalculus/x9e81a4f98389efdf:matrices/x9e81a4f98389efdf:matrices-as-transformations/a/identity-matrix" target="_blank">Khan Academy. "Identity Matrix."</a><br>
+    <a href="https://www.mathsisfun.com/algebra/matrix-multiplying.html" target="_blank">Math is Fun. "Matrix Multiplication."</a><br>
+    <a href="https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/readings/" target="_blank">MIT OpenCourseWare. "Linear Algebra Readings."</a>
+</p>
+

@@ -1,0 +1,80 @@
+<h2>What is a Determinant?</h2>
+
+<p>
+    The <strong>determinant</strong> is a special number that can be calculated from a square matrix. 
+    It's one of the most important concepts in linear algebra because it provides crucial information about the matrix and the linear transformations it represents. 
+    While the calculation might seem abstract at first, the determinant has very concrete meanings and applications that make it worth understanding.<br><br>
+</p>
+
+<p>
+    The first thing to know is that <strong>only square matrices have determinants</strong>. 
+    You cannot find the determinant of a rectangular matrix like a 2×3 or 3×5 matrix. 
+    The determinant is always a single number (a scalar), not a matrix. 
+    For a matrix A, the determinant is usually written as det(A) or |A|, where the vertical bars look like absolute value symbols but mean something different in this context.<br><br>
+</p>
+
+<p>
+    One of the most important interpretations of the determinant is that it tells you about the <strong>scaling factor</strong> of a linear transformation. 
+    If you think of a matrix as representing a transformation (like rotating, stretching, or reflecting), the determinant tells you how much the transformation scales area (in 2D) or volume (in 3D). 
+    For example, if the determinant is 3, the transformation triples the area or volume. 
+    If it's 0.5, it halves the area or volume.<br><br>
+</p>
+
+<p>
+    The determinant also tells you whether a matrix is <strong>invertible</strong> (has an inverse). 
+    If the determinant is zero, the matrix does not have an inverse and is called <strong>singular</strong> or <strong>non-invertible</strong>. 
+    If the determinant is non-zero, the matrix has an inverse and is called <strong>non-singular</strong> or <strong>invertible</strong>. 
+    This is a crucial property because many problems require finding matrix inverses, and you can immediately tell if it's possible by checking whether the determinant is zero.<br><br>
+</p>
+
+<p>
+    Here's a geometric way to think about it: 
+    Imagine you have a square in 2D space with vertices at (0,0), (1,0), (1,1), and (0,1). 
+    This square has area 1. 
+    When you apply a 2×2 matrix transformation to this square, it becomes a parallelogram. 
+    The <strong>absolute value</strong> of the determinant tells you the area of that new parallelogram. 
+    If the determinant is negative, it means the transformation also <strong>flips</strong> or <strong>reflects</strong> the shape (changes its orientation).<br><br>
+</p>
+
+<p>
+    For systems of linear equations, the determinant provides information about solutions. 
+    If you have a system represented by the matrix equation Ax = b, and the determinant of A is zero, then either the system has no solutions or infinitely many solutions. 
+    If the determinant is non-zero, the system has exactly one unique solution. 
+    This makes the determinant a powerful tool for understanding when systems of equations are solvable.<br><br>
+</p>
+
+<p>
+    Here are some key properties of determinants:<br><br>
+</p>
+<ul style="margin-bottom: 2em;">
+    <li><strong>Only for square matrices</strong> — Rectangular matrices don't have determinants</li>
+    <li><strong>Scaling property</strong> — det(kA) = k<sup>n</sup> × det(A) for an n×n matrix A</li>
+    <li><strong>Product property</strong> — det(AB) = det(A) × det(B)</li>
+    <li><strong>Transpose property</strong> — det(A<sup>T</sup>) = det(A)</li>
+    <li><strong>Inverse property</strong> — det(A<sup>-1</sup>) = 1/det(A) if A is invertible</li>
+    <li><strong>Zero determinant</strong> — If det(A) = 0, then A is not invertible</li>
+</ul>
+
+<p>
+    In practical applications, determinants are used in many areas. 
+    In <strong>computer graphics</strong>, they help determine if transformations preserve orientation. 
+    In <strong>engineering</strong>, they're used in stability analysis and solving differential equations. 
+    In <strong>statistics</strong>, they appear in multivariate analysis and calculating probabilities. 
+    In <strong>physics</strong>, they're used in quantum mechanics and relativity.<br><br>
+</p>
+
+<p>
+    While the calculation of determinants can become complex for large matrices, the concept itself is fundamental. 
+    Understanding what the determinant represents — the scaling factor and invertibility indicator — helps you make sense of many matrix operations and applications. 
+    As you learn to calculate determinants for 2×2 and 3×3 matrices, you'll develop an intuition for this important concept.<br><br>
+</p>
+
+<hr style="margin-top: 2em;">
+
+<p style="font-size: 0.9em; color: #777; font-style: italic;">
+    <strong>References:</strong><br>
+    <a href="https://www.khanacademy.org/math/linear-algebra/matrix-transformations/inverse-of-matrices/v/linear-algebra-determinant-of-a-2x2-matrix" target="_blank">Khan Academy. "Introduction to Determinants."</a><br>
+    <a href="https://www.mathsisfun.com/algebra/matrix-determinant.html" target="_blank">Math is Fun. "Determinant of a Matrix."</a><br>
+    <a href="https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/readings/" target="_blank">MIT OpenCourseWare. "Determinants."</a>
+</p>
+

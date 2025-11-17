@@ -1,0 +1,115 @@
+<h2>Addition & Subtraction</h2>
+
+<p>
+    Adding and subtracting matrices is one of the most straightforward matrix operations you'll learn. 
+    The rules are simple and intuitive, making it a great starting point for understanding how matrix operations work. 
+    Just like adding and subtracting regular numbers, matrix addition and subtraction follow a logical pattern that's easy to grasp once you understand the basic requirement.<br><br>
+</p>
+
+<p>
+    The most important rule for matrix addition and subtraction is that <strong>you can only add or subtract matrices that have the same dimensions</strong>. 
+    This means a 2×3 matrix can only be added to another 2×3 matrix, a 4×4 matrix can only be added to another 4×4 matrix, and so on. 
+    If the matrices don't have matching dimensions, the operation is undefined — you simply cannot perform it.<br><br>
+</p>
+
+<p>
+    Once you have two matrices of the same size, adding them is straightforward: you simply add the corresponding entries. 
+    The entry in row i, column j of the result is the sum of the entries in row i, column j of the two original matrices. 
+    In other words, you add element by element, position by position.<br><br>
+</p>
+
+<p>
+    Here's an example with two 2×3 matrices:<br><br>
+</p>
+
+<p style="text-align:center;">
+    <strong>
+        \( \begin{bmatrix}
+            3 & 5 & 2 \\
+            1 & 4 & 7
+        \end{bmatrix} + \begin{bmatrix}
+            2 & 1 & 6 \\
+            3 & 2 & 1
+        \end{bmatrix} = \begin{bmatrix}
+            3+2 & 5+1 & 2+6 \\
+            1+3 & 4+2 & 7+1
+        \end{bmatrix} = \begin{bmatrix}
+            5 & 6 & 8 \\
+            4 & 6 & 8
+        \end{bmatrix} \)
+    </strong>
+    <br><br>
+</p>
+
+<p>
+    Notice how each position is added separately: the top-left entries (3 and 2) add to 5, the top-middle entries (5 and 1) add to 6, and so on. 
+    This element-by-element addition is what makes matrix addition so intuitive — you're just adding numbers in matching positions.<br><br>
+</p>
+
+<p>
+    <strong>Matrix subtraction</strong> works exactly the same way, except you subtract instead of add. 
+    Again, the matrices must have the same dimensions, and you subtract corresponding entries. 
+    For example, if A and B are both 2×2 matrices, then A - B means you subtract each entry of B from the corresponding entry of A.<br><br>
+</p>
+
+<p>
+    Here's an example of subtraction:<br><br>
+</p>
+
+<p style="text-align:center;">
+    <strong>
+        \( \begin{bmatrix}
+            8 & 5 \\
+            3 & 9
+        \end{bmatrix} - \begin{bmatrix}
+            2 & 1 \\
+            1 & 4
+        \end{bmatrix} = \begin{bmatrix}
+            8-2 & 5-1 \\
+            3-1 & 9-4
+        \end{bmatrix} = \begin{bmatrix}
+            6 & 4 \\
+            2 & 5
+        \end{bmatrix} \)
+    </strong>
+    <br><br>
+</p>
+
+<p>
+    Matrix addition and subtraction have several useful properties that make them behave like regular addition and subtraction:<br><br>
+</p>
+<ul style="margin-bottom: 2em;">
+    <li><strong>Commutative property</strong> — A + B = B + A (order doesn't matter)</li>
+    <li><strong>Associative property</strong> — (A + B) + C = A + (B + C) (grouping doesn't matter)</li>
+    <li><strong>Additive identity</strong> — A + O = A, where O is the zero matrix</li>
+    <li><strong>Additive inverse</strong> — A + (-A) = O, where -A is the matrix with all entries negated</li>
+</ul>
+
+<p>
+    In practical terms, think of matrix addition like <strong>combining two data tables</strong> that have the same structure. 
+    For example, if you have a matrix showing sales for January and another showing sales for February (both with the same products in rows and regions in columns), adding them gives you the total sales for both months combined. 
+    Each cell in the result shows the sum of sales for that product in that region across both months.<br><br>
+</p>
+
+<p>
+    One important thing to remember is that matrix addition and subtraction are <strong>not the same as regular multiplication</strong>. 
+    You cannot "multiply" matrices by adding them — matrix multiplication is a completely different operation with different rules. 
+    Addition and subtraction are simpler operations that work element by element, while multiplication involves combining rows and columns in a more complex way.<br><br>
+</p>
+
+<p>
+    When working with matrix addition and subtraction, always check the dimensions first. 
+    If they match, you can proceed with the operation. 
+    If they don't match, you'll need to find a different approach or check if you've made an error in setting up your problem. 
+    This simple check can save you time and help you catch mistakes early.<br><br>
+</p>
+
+<hr style="margin-top: 2em;">
+
+<p style="font-size: 0.9em; color: #777; font-style: italic;">
+    <strong>References:</strong><br>
+    <a href="https://www.khanacademy.org/math/precalculus/x9e81a4f98389efdf:matrices/x9e81a4f98389efdf:adding-and-subtracting-matrices/a/adding-and-subtracting-matrices" target="_blank">Khan Academy. "Adding and Subtracting Matrices."</a><br>
+    <a href="https://www.mathsisfun.com/algebra/matrix-operations.html" target="_blank">Math is Fun. "Matrix Operations."</a><br>
+    <a href="https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/" target="_blank">MIT OpenCourseWare. "Linear Algebra."</a>
+</p>
+

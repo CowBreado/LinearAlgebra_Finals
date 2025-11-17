@@ -1,0 +1,147 @@
+<h2>Matrix Form of Systems</h2>
+
+<p>
+    One of the most powerful applications of matrices is representing and solving <strong>systems of linear equations</strong>. 
+    By writing a system of equations in matrix form, you can use matrix operations to solve problems that would be tedious or difficult using traditional algebraic methods. 
+    This matrix representation also makes it easier to understand the structure of the system and apply computational methods.<br><br>
+</p>
+
+<p>
+    A system of linear equations can be written in the form <strong>Ax = b</strong>, where:
+</p>
+<ul style="margin-bottom: 2em;">
+    <li><strong>A</strong> is the <strong>coefficient matrix</strong> — contains the coefficients of the variables</li>
+    <li><strong>x</strong> is the <strong>variable vector</strong> — contains the unknown variables</li>
+    <li><strong>b</strong> is the <strong>constant vector</strong> — contains the constants on the right side of the equations</li>
+</ul>
+
+<p>
+    For example, consider this system of two equations:<br><br>
+</p>
+
+<p style="text-align:center;">
+    <strong>
+        3x + 2y = 7<br>
+        5x - y = 1
+    </strong>
+    <br><br>
+</p>
+
+<p>
+    In matrix form, this becomes:<br><br>
+</p>
+
+<p style="text-align:center;">
+    <strong>
+        \( \begin{bmatrix}
+            3 & 2 \\
+            5 & -1
+        \end{bmatrix} \begin{bmatrix}
+            x \\
+            y
+        \end{bmatrix} = \begin{bmatrix}
+            7 \\
+            1
+        \end{bmatrix} \)
+    </strong>
+    <br><br>
+</p>
+
+<p>
+    Here, the coefficient matrix A contains the coefficients of x and y from both equations. 
+    The first row [3, 2] comes from the first equation (coefficients of x and y), and the second row [5, -1] comes from the second equation. 
+    The variable vector x contains the unknowns [x, y], and the constant vector b contains the right-hand side values [7, 1].<br><br>
+</p>
+
+<p>
+    For a system of three equations with three unknowns, the matrix form follows the same pattern. 
+    For example:<br><br>
+</p>
+
+<p style="text-align:center;">
+    <strong>
+        x + 2y + 3z = 6<br>
+        2x + 5y + 2z = 4<br>
+        -x + y + z = 0
+    </strong>
+    <br><br>
+</p>
+
+<p>
+    In matrix form:<br><br>
+</p>
+
+<p style="text-align:center;">
+    <strong>
+        \( \begin{bmatrix}
+            1 & 2 & 3 \\
+            2 & 5 & 2 \\
+            -1 & 1 & 1
+        \end{bmatrix} \begin{bmatrix}
+            x \\
+            y \\
+            z
+        \end{bmatrix} = \begin{bmatrix}
+            6 \\
+            4 \\
+            0
+        \end{bmatrix} \)
+    </strong>
+    <br><br>
+</p>
+
+<p>
+    Notice how each row of the coefficient matrix corresponds to one equation, and each column corresponds to one variable. 
+    This organization makes it easy to see the structure of the system and work with it using matrix operations.<br><br>
+</p>
+
+<p>
+    The matrix form Ax = b is powerful because it allows you to use matrix algebra to solve the system. 
+    If the coefficient matrix A is invertible (has a non-zero determinant), you can solve for x by multiplying both sides by A<sup>-1</sup>:<br><br>
+</p>
+
+<p style="text-align:center;">
+    <strong>
+        A<sup>-1</sup>(Ax) = A<sup>-1</sup>b<br>
+        (A<sup>-1</sup>A)x = A<sup>-1</sup>b<br>
+        Ix = A<sup>-1</sup>b<br>
+        x = A<sup>-1</sup>b
+    </strong>
+    <br><br>
+</p>
+
+<p>
+    This gives you a direct formula for the solution: x = A<sup>-1</sup>b. 
+    This is much more systematic than substitution or elimination methods, especially for larger systems.<br><br>
+</p>
+
+<p>
+    The matrix form also makes it easy to see important properties of the system. 
+    The number of rows in A tells you how many equations you have. 
+    The number of columns tells you how many variables you have. 
+    If the system is <strong>square</strong> (same number of equations as variables), and A is invertible, there's exactly one solution. 
+    If A is not invertible (determinant is zero), the system either has no solutions or infinitely many solutions.<br><br>
+</p>
+
+<p>
+    In practical applications, systems of equations appear everywhere. 
+    In <strong>engineering</strong>, they model circuits, structures, and fluid flow. 
+    In <strong>economics</strong>, they represent supply and demand relationships. 
+    In <strong>computer graphics</strong>, they solve for positions and transformations. 
+    Writing these systems in matrix form makes them easier to analyze and solve using computational methods.<br><br>
+</p>
+
+<p>
+    Understanding the matrix form of systems is the first step toward using powerful matrix-based solution methods. 
+    Once you can write a system as Ax = b, you have access to all the tools of linear algebra — matrix inverses, determinants, row operations, and more — to find solutions efficiently and systematically.<br><br>
+</p>
+
+<hr style="margin-top: 2em;">
+
+<p style="font-size: 0.9em; color: #777; font-style: italic;">
+    <strong>References:</strong><br>
+    <a href="https://www.khanacademy.org/math/linear-algebra/matrix-transformations/inverse-of-matrices/v/linear-algebra-representing-systems-of-equations-with-matrices" target="_blank">Khan Academy. "Representing Systems with Matrices."</a><br>
+    <a href="https://www.mathsisfun.com/algebra/systems-linear-equations-matrices.html" target="_blank">Math is Fun. "Systems of Linear Equations and Matrices."</a><br>
+    <a href="https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/readings/" target="_blank">MIT OpenCourseWare. "Systems of Linear Equations."</a>
+</p>
+

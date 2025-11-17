@@ -92,9 +92,11 @@
         }
     }
     function displayMatrixValue() {
+        
         const rows = Number(document.getElementById("rows").value);
         const columns = Number(document.getElementById("columns").value);
         if (!rows || !columns) {
+            console.log("error not square");
             alert("Please enter valid row and column sizes greater than 1. Row and Column sizes must be the same for the determinant of the Matrix.");
             return;
         }
@@ -107,7 +109,6 @@
             for (let j = 0; j < columns; j++) {
                 const val1 = document.getElementById(`matrix1[${i}][${j}]`).value;
                 det_matrix[i][j] = val1;
-
                 //check if an input field is left empty
                 if (val1 === "") {
                     alert(`Input at row ${i + 1}, column ${j + 1} is empty. Please enter a number.`);
