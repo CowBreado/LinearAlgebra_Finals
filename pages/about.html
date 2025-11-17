@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .aboutus-hero{
+            display: grid;
+            grid-template-columns: 1fr minmax(280px, 720px) 1fr;
+           
+            gap: 1rem;
+        }
+        .aboutus-hero > div:nth-child(2){
+            text-align: center;
+        }
+        .aboutus-team-grid{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+        .profile-card{
+            width: min(100%, 360px);
+            margin: 0 auto;
+            height: 500px;
+            background: #23273c;
+            border-radius: 24px;
+            box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .profile-card-media{
+            height: 350px;
+            background: #444;
+            background-size: cover;
+            background-position: center;
+        }
+        .profile-card-body{
+            flex: 1;
+            padding: 1.4rem 1.8rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+        .profile-card-role{
+            text-transform: uppercase;
+            letter-spacing: 0.28em;
+            color: #b2c9fd;
+            font-size: 0.8rem;
+            margin: 0;
+        }
+        .profile-card-body h3{
+            margin: 0;
+            font-size: 1.4rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .profile-card-body p{
+            margin: 0;
+            color: #d9deff;
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Navigation Bar Section-->
+    <secton id="topNavBar">
+        <div class="top-nav-bar">
+            <a href="../index.html">Linearity</a>
+            <!--Top Navigation Bar Items-->
+            <div class="top-nav-bar-item">
+                <a href="../index.html">Home</a>
+                <a href="#about-team-heading">About Us</a>
+            </div>
+        </div>
+    </secton>
+
+    <!--Hero Section-->
+    <section class="aboutus-hero">
+        <div></div>
+        <div>
+            <h1>About Us</h1>
+            <p>"Those who made Linearity a reality. Those whom spent countless hours, developing, even during the most challenging times."</p>
+        </div>
+        <div></div>
+    </section>
+    
+    <section>
+        <div class="aboutus-team-grid">
+            <article class="profile-card">
+                <div class="profile-card-media" style="background-image: url(/images/nest.jpg);"></div>
+                <div class="profile-card-body">
+                    <p class="profile-card-role">Front-End Developer</p>
+                    <h3>Ernest B. Villareal</h3>
+                </div>
+            </article>
+
+            <article class="profile-card">
+                <div class="profile-card-media" style="background-image: url('/images/kriztan.jpg');"></div>
+                <div class="profile-card-body">
+                    <p class="profile-card-role">Project Documenter</p>
+                    <h3>Kriztan Sumbillo</h3>
+                </div>
+            </article>
+
+            <article class="profile-card">
+                <div class="profile-card-media" style="background-image: url('/images/jose.jpg');"></div>
+                <div class="profile-card-body">
+                    <p class="profile-card-role">Front-End Developer</p>
+                    <h3>Jose Veracruz</h3>
+                </div>
+            </article>
+
+
+        </div>
+    </section>
+
+
+</body>
+</html>

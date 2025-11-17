@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+     <!--Plotly import for the cartesian plane and visualizing-->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <!-- Top Navigation Bar Section-->
+    <section id="topNavBar">
+        <div class="top-nav-bar">
+            <a href="../index.html">Linearity</a>
+            <!--Top Navigation Bar Items-->
+            <div class="top-nav-bar-item">
+                <a href="../index.html">Home</a>
+                <a href="../pages/about.html">About Us</a>
+            </div>
+        </div>
+    </section>
+    <!--Hero Section-->
+    <section>
+        <div class="card-cus display-border"style="display:flex;margin-top:20px;">
+            <div class="card-content">
+            <h1 style="text-align: leftr;">3D Vector Span Visualizer</h1>
+            <p style="text-align:justify;">Explore how one vector can scale to form another in 3D space. Enter two vectors and see if the second lies in the span of the first, visualized in an interactive 3D graph.</p>
+            </div>
+            <div class="card-content">
+                <img class="image" src="images/linear-algebra.jpg"alt="">
+            </div>     
+        </div>
+    </section>
+
+
+    <section>
+      <div id="plotArea" style="width: 80%; max-height: 60vh; margin: 40px auto 60px auto;"></div>
+    <section>
+      
+    <section>
+      <div style="text-align:center;margin-top:40px;">
+          <label>Vector A (Red)</label>
+          <input id="a1" type="number" style="width: 100px; min-height: 30px;margin-left:20px;">
+          <input id="a2" type="number" style="width: 100px; min-height: 30px;">
+          <input id="a3" type="number" style="width: 100px; min-height: 30px;">
+      </div>
+
+      <div style="text-align:center;margin-top:40px;">
+          <label>Vector B (Green)</label>
+          <input id="b1" type="number" style="width: 100px; min-height: 30px;">
+          <input id="b2" type="number" style="width: 100px; min-height: 30px;">
+          <input id="b3" type="number" style="width: 100px; min-height: 30px;">
+      </div>
+    </section>
+
+    <section>
+    <div style="text-align:center; margin-top:40px;margin-bottom: 5rem;">
+      <a href="" onclick="inputVectors(); return false;" style="text-align:center;border-width:1px; border-style: solid; ">Input Vectors</a>
+      <a href="" onclick="removeGraph(); return false;" style="text-align:center;border-width:1px; border-style: solid;margin-left: 10px; ">Remove Graph</a>
+    </div>
+    <div id="resultContainer"></div>
+    </section>
+
+    <section>
+    <div class="empty-div">
+    </div>
+    </section>
+    
+    
+<script>
+    let vector_a = [];
+    let vector_b = [];
+    // Define the XY plane
+    const plane = {
+      type: 'surface',
+      x: [[-100,100], [-100,100]],
+      y: [[-100,-100],[100,100]],
+      z: [[100,100],[100,100]],
+      opacity: 0.2,
+      colorscale: [[0,'lightgray'], [1,'lightgray']],
+      showscale: false
+    };
+    // Define layout
+    const layout = {
+      scene: {
+        xaxis: {title:'X', range:[-10,10]},
+        yaxis: {title:'Y', range:[-10,10]},
+        zaxis: {title:'Z', range:[-10,10]}
+      },
+      margin: {l:0,r:0,b:0,t:0}
+    };
+    function validate(temp_list){
+      for(let i =0 ; i < 6; i++){
+        console.log("Contents of the temp_list: ", temp_list[i]);
+        if(temp_list[i] == ""){
+          alert("Missing input, fill out all the input fields.");
+          return;
+        }
+      }
+    }
+     function inputVectors(){
+      // read input values
+      let a1 = Number(document.getElementById("a1").value);
+      let a2 = Number(document.getElementById("a2").value);
+      let a3 = Number(document.getElementById("a3").value);
+      let b1 = Number(document.getElementById("b1").value);
+      let b2 = Number(document.getElementById("b2").value);
+      let b3 = Number(document.getElementById("b3").value);
+
+      let temp_list = [a1, a2, a3, b1, b2, b3];
+      validate(temp_list);
+
+      vector_a = [a1, a2, a3];
+      vector_b = [b1, b2, b3];
+
+      const traces = [
+        {
+          x: [0, vector_a[0]],
+          y: [0, vector_a[1]],
+          z: [0, vector_a[2]],
+          mode: 'lines+markers+text',
+          type: 'scatter3d',
+          marker: {size: 4, color: 'red'},
+          line: {width: 4, color: 'red'},
+          text: [null, 'A'],
+          textposition: 'top right'
+        },
+        {
+          x: [0, vector_b[0]],
+          y: [0, vector_b[1]],
+          z: [0, vector_b[2]],
+          mode: 'lines+markers+text',
+          type: 'scatter3d',
+          marker: {size: 4, color: 'green'},
+          line: {width: 4, color: 'green'},
+          text: [null, 'B'],
+          textposition: 'top right'
+        },
+      ];
+      Plotly.newPlot('plotArea', traces, layout);
+      displayResult();
+    }
+
+   
+    //function to check if there is a multiple of k for the vector A
+    function isMultiple(v1, v2) {
+      let k = null;
+      for (let i = 0; i < 3; i++) {
+        if (v1[i] !== 0) {
+          let ratio = v2[i] / v1[i];
+          if (k === null) k = ratio;
+          else if (Math.abs(ratio - k) > 1e-10) return {multiple: false, k: null};
+        } else if (v2[i] !== 0) return {multiple: false, k: null};
+      }
+      return {multiple: true, k: k};
+    }
+    function removeGraph() {
+        const plotDiv = document.getElementById('plotArea');
+        plotDiv.innerHTML = ""; // Removes all Plotly content
+    }
+    
+    //Display the result whether the vector is a span or not.
+    function displayResult(){ 
+      document.getElementById("resultContainer").innerHTML ="";
+      let container = document.getElementById("resultContainer");
+      
+      const result = isMultiple(vector_a, vector_b);
+      let h2 = document.createElement("h2");
+      h2.style.textAlign = "center";
+      if(result.multiple == true){
+        h2.textContent = `Vector B is a multiple of Vector A with a scalar of K = ${result.k}`;
+      } else {
+        h2.textContent = `Vector B is not multiple of Vector A with a scalar of K.`;
+      }
+      container.appendChild(h2);
+    }
+</script>
+
+</body>
+</html>
