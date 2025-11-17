@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Determinants of a Matrix Calculator</title>
     <link rel="stylesheet" href="../styles.css">
@@ -13,7 +14,7 @@
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <!--Top Nav Bar Section-->
-<secton id="topNavBar">
+<section id="topNavBar">
     <div class="top-nav-bar">
         <a href="#" style="margin-left: 20px;">Linearity</a>
         <!--Top Navigation Bar Items-->
@@ -22,7 +23,7 @@
             <a href="/index/about.html">About Us</a>
         </div>
     </div>
-</secton>
+</section>
 
 
 
@@ -67,22 +68,13 @@
     </div>
 </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
 <script>
     let det_matrix = [];
     let orig_matrix = [];
     function resetInput() {
+        det_matrix = [];
+        document.getElementById("rows").value = "";
+        document.getElementById("columns").value = "";
         document.getElementById("contained").innerHTML = "";
         document.getElementById("contained3").innerHTML = "";
         document.getElementById("contained4").innerHTML = "";
@@ -104,7 +96,7 @@
             alert("Please enter valid row and column sizes greater than 1.");
             return;
         }
-        if((rows != columns)){
+        if ((rows != columns)) {
             alert("Row and Column sizes must be the same for the determinant of the Matrix.");
             return;
         }
@@ -125,12 +117,10 @@
     }
 
     //call this to set the matrix values to inverse of it if there is one.
-    function getInverse(){
+    function getInverse() {
         displayMatrixValue();
         const rows = document.getElementById("rows").value;
         const columns = document.getElementById("columns").value;
-
-     
         if (rows == 2 && columns == 2) {
             let a = parseFloat(det_matrix[0][0]);
             let b = parseFloat(det_matrix[0][1]);
@@ -138,7 +128,7 @@
             let d = parseFloat(det_matrix[1][1]);
             // determinant
             let det = (a * d) - (b * c);
-            if(det === 0){
+            if (det === 0) {
                 alert("Matrix has no inverse (determinant = 0)");
                 return;
             }
@@ -157,7 +147,7 @@
 
             showInverseMatrix();
             showInverseSolution();
-        } else if (rows == 3 && columns == 3){
+        } else if (rows == 3 && columns == 3) {
             //kung makita to ni sir philip, patay nako
             let a = parseFloat(det_matrix[0][0]);
             let b = parseFloat(det_matrix[0][1]);
@@ -171,23 +161,23 @@
             let h = parseFloat(det_matrix[2][1]);
             let i = parseFloat(det_matrix[2][2]);
 
-            
-            let det = parseFloat(a*(e*i-f*h)-b*(d*i - f*g)+c*(d*h-e*g))
-            if(det == 0){
+
+            let det = parseFloat(a * (e * i - f * h) - b * (d * i - f * g) + c * (d * h - e * g))
+            if (det == 0) {
                 alert("Matrix has no inverse (determinant = 0)");
                 return;
             }
-            let c11 = parseFloat(e*i - f*h);
-            let c12 = parseFloat(-(d*i - f*g));
-            let c13 = parseFloat(d*h - e*g);
+            let c11 = parseFloat(e * i - f * h);
+            let c12 = parseFloat(-(d * i - f * g));
+            let c13 = parseFloat(d * h - e * g);
 
-            let c21 = parseFloat(-(b*i - c*h));
-            let c22 = parseFloat(a*i - c*g);
-            let c23 = parseFloat(-(a*h - b*g));
+            let c21 = parseFloat(-(b * i - c * h));
+            let c22 = parseFloat(a * i - c * g);
+            let c23 = parseFloat(-(a * h - b * g));
 
-            let c31 = parseFloat(b*f - c*e);
-            let c32 = parseFloat(-(a*f - c*d));
-            let c33 = parseFloat(a*e - b*d);
+            let c31 = parseFloat(b * f - c * e);
+            let c32 = parseFloat(-(a * f - c * d));
+            let c33 = parseFloat(a * e - b * d);
 
             det_matrix[0][0] = parseFloat(c11 / det);
             det_matrix[0][1] = parseFloat(c21 / det);
@@ -201,6 +191,17 @@
             det_matrix[2][1] = parseFloat(c23 / det);
             det_matrix[2][2] = parseFloat(c33 / det);
 
+            showInverseMatrix();
+            showInverseSolution();
+        } else {
+            let det_check = math.det(det_matrix);
+            if (det_check === 0) {
+                alert("Matrix has no inverse (determinant = 0).");
+                return;
+            }
+            let inverse = math.inv(det_matrix);
+            console.log("The inverse of the det_matrix: " + inverse);
+            det_matrix = inverse;
             showInverseMatrix();
             showInverseSolution();
         }
@@ -229,6 +230,8 @@
             resultContainer.appendChild(document.createElement("br"));
         }
     }
+
+
     function showInverseSolution() {
         const rows = Number(document.getElementById("rows").value);
         const columns = Number(document.getElementById("columns").value);
@@ -241,7 +244,7 @@
             const c = orig_matrix[1][0];
             const d = orig_matrix[1][1];
 
-            const det = a*d - b*c;
+            const det = a * d - b * c;
             if (det === 0) {
                 alert("Matrix has no inverse (determinant = 0).");
                 return;
@@ -255,7 +258,7 @@
             const stepDiv = document.createElement("div");
             stepDiv.style.fontSize = "32px";
             stepDiv.innerHTML = `
-                <h2>Inverse Solution (2x2)</h2>
+                <h1 class="text-center text-light">Solution</h1>
 
                 $$ 
                 \\text{Determinant: } det(A) = ad - bc = ${det} 
@@ -291,23 +294,23 @@
             const d = orig_matrix[1][0], e = orig_matrix[1][1], f = orig_matrix[1][2];
             const g = orig_matrix[2][0], h = orig_matrix[2][1], i = orig_matrix[2][2];
 
-            const det = a*(e*i-f*h) - b*(d*i-f*g) + c*(d*h-e*g);
+            const det = a * (e * i - f * h) - b * (d * i - f * g) + c * (d * h - e * g);
             if (det === 0) {
                 alert("Matrix has no inverse (determinant = 0).");
                 return;
             }
 
-            const c11 = e*i - f*h;
-            const c12 = -(d*i - f*g);
-            const c13 = d*h - e*g;
+            const c11 = e * i - f * h;
+            const c12 = -(d * i - f * g);
+            const c13 = d * h - e * g;
 
-            const c21 = -(b*i - c*h);
-            const c22 = a*i - c*g;
-            const c23 = -(a*h - b*g);
+            const c21 = -(b * i - c * h);
+            const c22 = a * i - c * g;
+            const c23 = -(a * h - b * g);
 
-            const c31 = b*f - c*e;
-            const c32 = -(a*f - c*d);
-            const c33 = a*e - b*d;
+            const c31 = b * f - c * e;
+            const c32 = -(a * f - c * d);
+            const c33 = a * e - b * d;
 
             const stepDiv = document.createElement("div");
             stepDiv.style.fontSize = "32px";
@@ -358,26 +361,6 @@
             solutionContainer.appendChild(stepDiv);
             if (window.MathJax) MathJax.typesetPromise([stepDiv]);
         }
-
-        if(rows > 3 && columns > 3){
-        const solutionContainer = document.getElementById("contained4");
-        solutionContainer.innerHTML = ""; // clear previous
-
-        const stepDiv = document.createElement("div");
-        stepDiv.style.fontSize = "32px";
-        stepDiv.innerHTML = `
-        <h1 class="text-center text-light">Step-by-Step Solution Not Available</h1>
-        $$
-        \\text{Step-by-step solution of the determinant of the matrix is only available for 2x2 and 3x3 matrices.}
-        $$
-    `;
-
-    solutionContainer.appendChild(stepDiv);
-
-    if (window.MathJax) {
-        MathJax.typesetPromise([stepDiv]);
-    }
-}
     }
     //Fill the matrix
     function displayMatrixValue() {
@@ -389,7 +372,7 @@
             alert("Please enter valid row and column sizes greater than 1. Row and Column sizes must be the same for the inverse of the Matrix.");
             return;
         }
-        if (rows <= 0 && columns <= 0) {
+        if (rows <= 1 && columns <= 1) {
             alert("Please enter valid row and column sizes greater than 1. Row and Column sizes must be the same for the inverse of the Matrix.");
             return;
         }
@@ -411,58 +394,11 @@
                     return;
                 }
                 console.log("Value of det_matrix: " + det_matrix);
+
             }
         }
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /*
-
-
-                //check if an input field is left empty
-                if (val1 === "") {
-                    alert(`Input at row ${i + 1}, column ${j + 1} is empty. Please enter a number.`);
-                    return;
-                }
-                //check if an input field is not a number.
-                if (isNaN(Number(val1))) {
-                    alert(`Invalid input at row ${i + 1}, column ${j + 1}. Please enter a valid number.`);
-                    return;
-                }
-
-
-    */
-
-
-
-
-
-    
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </html>

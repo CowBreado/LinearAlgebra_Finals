@@ -56,13 +56,21 @@
 <script>
     let det_matrix = [];
     function resetInput() {
+        det_matrix = [];
+        document.getElementById("rows").value = "";
+        document.getElementById("columns").value = "";
         document.getElementById("contained").innerHTML = "";
         document.getElementById("contained3").innerHTML = "";
         document.getElementById("contained4").innerHTML = "";
     }
+
+
     function generateMatrix() {
         document.getElementById("contained3").innerHTML = "";
         document.getElementById("contained4").innerHTML = "";
+
+
+
         const rows = document.getElementById("rows").value;
         const columns = document.getElementById("columns").value;
         const container = document.getElementById("contained");
@@ -259,69 +267,11 @@
             const determinant = termA + termB + termC + termD;
 
             // Prepare LaTeX display
-            const solutionContainer = document.getElementById("contained4");
-            solutionContainer.innerHTML = ""; // clear previous
-
-            const stepDiv = document.createElement("div");
-            stepDiv.style.fontSize = "32px";
-            stepDiv.innerHTML = `
-            <h2>Solution</h2>
-
-            $$ 
-            \\det(A) =
-            \\begin{vmatrix}
-            ${m[0][0]} & ${m[0][1]} & ${m[0][2]} & ${m[0][3]} \\\\
-            ${m[1][0]} & ${m[1][1]} & ${m[1][2]} & ${m[1][3]} \\\\
-            ${m[2][0]} & ${m[2][1]} & ${m[2][2]} & ${m[2][3]} \\\\
-            ${m[3][0]} & ${m[3][1]} & ${m[3][2]} & ${m[3][3]}
-            \\end{vmatrix}
-            $$
-            
-            $$ 
-            = ${a} \\cdot \\det
-            \\begin{vmatrix}
-            ${m[1][1]} & ${m[1][2]} & ${m[1][3]} \\\\
-            ${m[2][1]} & ${m[2][2]} & ${m[2][3]} \\\\
-            ${m[3][1]} & ${m[3][2]} & ${m[3][3]}
-            \\end{vmatrix}
-            - ${b} \\cdot \\det
-            \\begin{vmatrix}
-            ${m[1][0]} & ${m[1][2]} & ${m[1][3]} \\\\
-            ${m[2][0]} & ${m[2][2]} & ${m[2][3]} \\\\
-            ${m[3][0]} & ${m[3][2]} & ${m[3][3]}
-            \\end{vmatrix}
-            + ${c} \\cdot \\det
-            \\begin{vmatrix}
-            ${m[1][0]} & ${m[1][1]} & ${m[1][3]} \\\\
-            ${m[2][0]} & ${m[2][1]} & ${m[2][3]} \\\\
-            ${m[3][0]} & ${m[3][1]} & ${m[3][3]}
-            \\end{vmatrix}
-            - ${d} \\cdot \\det
-            \\begin{vmatrix}
-            ${m[1][0]} & ${m[1][1]} & ${m[1][2]} \\\\
-            ${m[2][0]} & ${m[2][1]} & ${m[2][2]} \\\\
-            ${m[3][0]} & ${m[3][1]} & ${m[3][2]}
-            \\end{vmatrix}
-            $$
-            
-            $$ 
-            det(A) = ${termA} + ${termB} + ${termC} + ${termD} 
-            = ${determinant}
-            $$
-        `;
-            solutionContainer.appendChild(stepDiv);
             if (window.MathJax) {
                 MathJax.typesetPromise([stepDiv]);
             }
         }
         //When matrix dimension is > 4, display this instead.
-        else if (rows > 4 && columns >= 4) {
-            let default_text = document.createElement("h2");
-            default_text.textContent = "Step-by-step solution of the determinant of the matrix is only available for 2x2, 3x3, and 4x4.";
-
-            let targetContainer = document.getElementById("contained4");
-            targetContainer.append(default_text);
-        }
     }
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
