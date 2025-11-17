@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <title>Linear Algebra Finals Project</title>
+            <link rel="stylesheet" href="../styles.css">
+             <!--Bootstrap CSS-->
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+            <!--Personal CSS-->
+            <link rel="stylesheet" href="style.css" />
+        </head>
+
+<!--Top Nav Bar Section-->
+  <secton id="topNavBar">
+    <div class="top-nav-bar">
+        <a href="#"style="margin-left: 20px;">Linearity</a>
+        <!--Top Navigation Bar Items-->
+        <div class="top-nav-bar-item">
+            <a href="../index.html">Home</a>
+            <a href="/index/about.html">About Us</a>
+            <a href="#">References</a>
+        </div>
+    </div>
+</secton>
+
+
+
+
+
+<div class="container mt-4">
+    <h1 class="text-light fw-bold">Matrix Operation</h1>
+    <p>Matrices are at the heart of linear algebra — powerful tools that turn complex problems into structured patterns of numbers. From solving systems of equations to representing geometric transformations, matrices appear everywhere: in computer graphics, engineering simulations, data science, and even game physics.
+
+This section lets you dive right into the essentials of matrix computation. You can easily perform basic operations like addition, subtraction, and multiplication, or go further by finding determinants and inverses. Whether you’re reviewing for class or exploring out of curiosity, this interactive tool helps you see how matrix operations actually work, step by step.
+
+It’s built to make linear algebra less abstract and more hands-on — a space where you can experiment, learn from patterns, and strengthen your intuition for how numbers interact within a matrix.</p>
+    <p>Start calculating and make linear algebra easier!</p>
+</div>
+
+<div class="container mt-4">
+    <h2 class ="text-light text-center">Enter Matrix Dimension</h2>
+    <div class="container mt-4 text-center">
+      <label for="rows">Rows:</label>
+      <input type="number" id="rows" placeholder="Enter Row Size">
+
+      <label for="rows">Columns:</label>
+      <input type="number" id="columns" placeholder="Enter Column Size">
+    </div>
+
+    <div class="container mt-4 text-center">
+      <h2 class="text-light ">Matrix 1</h2>
+      <div class="container mt-4" id="contained">
+        <!--  
+        <input type="number" id="matrix1[0][0]" class="form-control-sm d-inline-block m-1" style="width: 65px;">
+        -->
+      </div>
+      <select id="operation" class="form-select-sm mt-2 pb-2">
+        <option value="add">Addition (+)</option>
+        <option value="sub">Subtraction (-)</option>
+        <option value="mul">Multiplication (x)</option>
+      </select>
+
+      <h2 class="text-light mt-4">Matrix 2</h2>
+      <div class="container mt-4" id="contained2">
+        <!--
+        <input type="number" id="matrix2[0][0]" class="form-control-sm d-inline-block m-1" style="width: 65px;">
+        -->
+      </div>
+
+      <h1 class="text-light fw-bold mt-4">Result Matrix</h1>
+      <div class="container mt-4" id="contained3"></div>
+    </div>
+  <div class="mt-3 text-center"> 
+        <a class="button button-light" onclick="generateMatrix()">Generate Matrix</a>
+        <a class="button button-light" onclick="computeMatrix()">Compute Matrix</a>
+        <a class="button button-light" onclick="resetInput()">Reset Matrix</a>
+        <a class="button button-light" onclick="reset()">Reset Input</a>
+        <!-- <a class="button button-light" onclick="displayMatrixValue()">View Values Console</a> -->
+         <br></br>
+  </div> 
+</div>
+
+<script>
+  function computeMatrix(){
+    const operation = document.getElementById("operation").value;
+    if(operation === "add"){
+      addMatrix();
+    } else if(operation === "sub"){
+      subtractMatrix();
+    } else if(operation === "mul"){
+      multiplyMatrix();
+    }
+  }
+
+  function addMatrix(){
+    const rows = document.getElementById("rows").value;
+    const columns = document.getElementById("columns").value;
+
+    const container3 = document.getElementById("contained3");
+    container3.innerHTML = "";
+    for(let i =0 ; i < rows; i++){
+        for(let j = 0; j < columns; j++){
+        const input = document.createElement("input");
+        input.type = "number";
+        input.id = `matrix3[${i}][${j}]`;
+        input.className = "form-control-sm d-inline-block m-1";
+        input.style.width = "65px";
+        input.readOnly = true;
+        const val1 = parseFloat(document.getElementById(`matrix1[${i}][${j}]`).value) || 0;
+        const val2 = parseFloat(document.getElementById(`matrix2[${i}][${j}]`).value) || 0;
+
+        input.value = val1+val2;
+        container3.append(input);
+        }
+        const br = document.createElement("br");
+        container3.append(br);
+    }
+  }
+
+  function subtractMatrix(){
+    const rows = document.getElementById("rows").value;
+    const columns = document.getElementById("columns").value;
+    const container3 = document.getElementById("contained3");
+    container3.innerHTML = "";
+    for(let i =0 ; i < rows; i++){
+        for(let j = 0; j < columns; j++){
+        const input = document.createElement("input");
+        input.type = "number";
+        input.id = `matrix3[${i}][${j}]`;
+        input.className = "form-control-sm d-inline-block m-1";
+        input.style.width = "65px";
+        input.readOnly = true;
+        const val1 = parseFloat(document.getElementById(`matrix1[${i}][${j}]`).value) || 0;
+        const val2 = parseFloat(document.getElementById(`matrix2[${i}][${j}]`).value) || 0;
+
+        input.value = val1-val2;
+        container3.append(input);
+        }
+        const br = document.createElement("br");
+        container3.append(br);
+    }
+  }
+
+function multiplyMatrix() {
+  const rows = parseInt(document.getElementById("rows").value);
+  const columns = parseInt(document.getElementById("columns").value);
+  const container3 = document.getElementById("contained3");
+  container3.innerHTML = "";
+
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < columns; j++) {
+      let sum = 0;
+      for (let k = 0; k < columns; k++) {
+        const val1 = parseFloat(document.getElementById(`matrix1[${i}][${k}]`).value) || 0;
+        const val2 = parseFloat(document.getElementById(`matrix2[${k}][${j}]`).value) || 0;
+        sum += val1 * val2;
+      }
+      const input = document.createElement("input");
+      input.type = "number";
+      input.id = `matrix3[${i}][${j}]`;
+      input.className = "form-control-sm d-inline-block m-1";
+      input.style.width = "65px";
+      input.readOnly = true;
+      input.value = sum;
+      container3.append(input);
+    }
+    const br = document.createElement("br");
+    container3.append(br);
+  }
+}
+  function reset(){
+    document.getElementById("rows").value = "";
+    document.getElementById("columns").value = "";
+
+    document.getElementById("rows").innerHTML = "";
+    document.getElementById("columns").innerHTML = "";
+  }
+  function resetInput(){
+    const container = document.getElementById("contained");
+    container.innerHTML = "";
+    let input = document.createElement("input");
+    input.id = "matrix1[0][0]";
+    input.className = "form-control-sm d-inline-block m-1";
+    input.style.width = "65px";
+    container.append(input);
+
+    const container2 = document.getElementById("contained2");
+    container2.innerHTML = "";
+    let input2 = document.createElement("input");
+    input2.className = "form-control-sm d-inline-block m-1";
+    input2.style.width = "65px";
+    container2.append(input2);
+
+
+    const container3 = document.getElementById("contained3");
+    container3.innerHTML = "";
+    
+  }
+
+  function generateMatrix(){
+    const rows = document.getElementById("rows").value;
+    const columns = document.getElementById("columns").value;
+    //container for matrix 1
+    const container = document.getElementById("contained");
+    //container for matrix 2
+    const container2 = document.getElementById("contained2");
+    container.innerHTML = "";
+    container2.innerHTML = "";
+
+    if(rows <=1 || columns <=1){
+      alert("Please enter valid row and column sizes greater than 1.");
+      /*
+      const container = document.getElementById("contained");
+      container.innerHTML = "";
+      let input = document.createElement("input");
+      input.id = "matrix1[0][0]";
+      input.className = "form-control-sm d-inline-block m-1";
+      input.style.width = "65px";
+      container.append(input);
+      
+      const container2 = document.getElementById("contained2");
+      container2.innerHTML = "";
+      let input2 = document.createElement("input");
+      input2.id = "matrix2[0][0]";
+      input2.className = "form-control-sm d-inline-block m-1";
+      input2.style.width = "65px";
+      container2.append(input2);
+      */
+      return;
+    }
+
+    for(let i =0 ; i < rows; i++){
+        for(let j = 0; j < columns; j++){
+          console.log("Creating input box for index: ",i," and: ",j);
+          const input = document.createElement("input");
+          input.type = "any";
+          input.id = `matrix1[${i}][${j}]`;
+          input.className = "form-control-sm d-inline-block m-1";
+          input.style.width = "65px";
+
+          const input2 = document.createElement("input");
+          input2.type = "any";
+          input2.id = `matrix2[${i}][${j}]`;
+          input2.className = "form-control-sm d-inline-block m-1";
+          input2.style.width = "65px";
+          
+          container.append(input);
+          container2.append(input2);
+
+          console.log(input.id+", "+input2.id);
+        }
+        const br = document.createElement("br");
+        const br2 = document.createElement("br");
+        container.append(br);
+        container2.append(br2);
+    }
+  }
+  function displayMatrixValue(){
+    const rows = document.getElementById("rows").value;
+    const columns = document.getElementById("columns").value;
+    for(let i =0 ; i < rows; i++){
+      for(let j = 0; j < columns; j++){
+        const val1 = document.getElementById(`matrix1[${i}][${j}]`).value;
+        const val2 = document.getElementById(`matrix2[${i}][${j}]`).value;
+        console.log("Matrix 1 Value at ("+i+","+j+"): "+val1);
+        console.log("Matrix 2 Value at ("+i+","+j+"): "+val2);
+      }
+    }
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</html>
