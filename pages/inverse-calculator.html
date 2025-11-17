@@ -20,14 +20,21 @@
         <div class="top-nav-bar-item">
             <a href="../index.html">Home</a>
             <a href="/index/about.html">About Us</a>
-            <a href="#">References</a>
         </div>
     </div>
 </secton>
+
+
+
+
+
+
+
+
 <!--Calculator Section-->
 <section>
     <div class="container mt-4">
-        <h1 class="text-white">Determinant of a Matrix</h1>
+        <h1 class="text-white">Inverse of a Matrix</h1>
     </div>
     <div class="container mt-4">
         <h2 class="text-white text-center">Enter Matrix Dimension</h2>
@@ -38,15 +45,20 @@
             <input type="number" id="columns" placeholder="Enter Column Size">
         </div>
         <div class="container mt-4 text-center">
+
+            <!--Matrix Input-->
             <h2 class="text-white">Matrix</h2>
             <div class="container mt-4" id="contained">
             </div>
-            <h2 class="text-white mt-4">Determinant of a Matrix</h2>
+
+            <h2 class="text-white mt-4">Inverse of a Matrix</h2>
+            <!-- Inverse of a Matrix Div Result-->
             <div class="container mt-4" id="contained3"></div>
+
         </div>
         <div class="mt-3 text-center" style="margin-bottom: 20px;">
             <a class="button button-light" href="#" onclick="generateMatrix()">Generate Matrix</a>
-            <a class="button button-light" href="#" onclick="displayMatrixValue()">Calculate Determinant</a>
+            <a class="button button-light" href="#" onclick="getInverse()">Calculate Inverse</a>
             <a class="button button-light" href="#" onclick="resetInput()">Reset Matrix</a>
             <!-- <a class="button button-light" onclick="displayMatrixValue()">View Values Console</a> -->
         </div>
@@ -69,6 +81,7 @@
 
 <script>
     let det_matrix = [];
+    let orig_matrix = [];
     function resetInput() {
         document.getElementById("contained").innerHTML = "";
         document.getElementById("contained3").innerHTML = "";
@@ -77,22 +90,16 @@
 
 
 
-
-
-
-
-
-
-
-
-
     function generateMatrix() {
         document.getElementById("contained3").innerHTML = "";
         document.getElementById("contained4").innerHTML = "";
+
+        //Container 1 Matrix Generation
         const rows = document.getElementById("rows").value;
         const columns = document.getElementById("columns").value;
         const container = document.getElementById("contained");
         container.innerHTML = "";
+
         if (rows <= 1 || columns <= 1) {
             alert("Please enter valid row and column sizes greater than 1.");
             return;
@@ -117,47 +124,326 @@
         }
     }
 
+    //call this to set the matrix values to inverse of it if there is one.
+    function getInverse(){
+        displayMatrixValue();
+        const rows = document.getElementById("rows").value;
+        const columns = document.getElementById("columns").value;
+
+     
+        if (rows == 2 && columns == 2) {
+            let a = parseFloat(det_matrix[0][0]);
+            let b = parseFloat(det_matrix[0][1]);
+            let c = parseFloat(det_matrix[1][0]);
+            let d = parseFloat(det_matrix[1][1]);
+            // determinant
+            let det = (a * d) - (b * c);
+            if(det === 0){
+                alert("Matrix has no inverse (determinant = 0)");
+                return;
+            }
+            let one_over = parseFloat(1 / det);
+            //Cofactor
+
+
+            det_matrix[0][0] = parseFloat(one_over * d).toFixed(3);
+            det_matrix[0][1] = parseFloat(one_over * (-b)).toFixed(3);
+            det_matrix[1][0] = parseFloat(one_over * (-c)).toFixed(3);
+            det_matrix[1][1] = parseFloat(one_over * a).toFixed(3);
+
+            console.log("Value of det_matrix Inverse: " + det_matrix);
 
 
 
+            showInverseMatrix();
+            showInverseSolution();
+        } else if (rows == 3 && columns == 3){
+            //kung makita to ni sir philip, patay nako
+            let a = parseFloat(det_matrix[0][0]);
+            let b = parseFloat(det_matrix[0][1]);
+            let c = parseFloat(det_matrix[0][2]);
 
+            let d = parseFloat(det_matrix[1][0]);
+            let e = parseFloat(det_matrix[1][1]);
+            let f = parseFloat(det_matrix[1][2]);
 
+            let g = parseFloat(det_matrix[2][0]);
+            let h = parseFloat(det_matrix[2][1]);
+            let i = parseFloat(det_matrix[2][2]);
 
+            
+            let det = parseFloat(a*(e*i-f*h)-b*(d*i - f*g)+c*(d*h-e*g))
+            if(det == 0){
+                alert("Matrix has no inverse (determinant = 0)");
+                return;
+            }
+            let c11 = parseFloat(e*i - f*h);
+            let c12 = parseFloat(-(d*i - f*g));
+            let c13 = parseFloat(d*h - e*g);
 
+            let c21 = parseFloat(-(b*i - c*h));
+            let c22 = parseFloat(a*i - c*g);
+            let c23 = parseFloat(-(a*h - b*g));
 
+            let c31 = parseFloat(b*f - c*e);
+            let c32 = parseFloat(-(a*f - c*d));
+            let c33 = parseFloat(a*e - b*d);
 
+            det_matrix[0][0] = parseFloat(c11 / det);
+            det_matrix[0][1] = parseFloat(c21 / det);
+            det_matrix[0][2] = parseFloat(c31 / det);
 
+            det_matrix[1][0] = parseFloat(c12 / det);
+            det_matrix[1][1] = parseFloat(c22 / det);
+            det_matrix[1][2] = parseFloat(c32 / det);
 
+            det_matrix[2][0] = parseFloat(c13 / det);
+            det_matrix[2][1] = parseFloat(c23 / det);
+            det_matrix[2][2] = parseFloat(c33 / det);
 
+            showInverseMatrix();
+            showInverseSolution();
+        }
+    }
+    function showInverseMatrix() {
+        const resultContainer = document.getElementById("contained3");
+        resultContainer.innerHTML = ""; // clear previous
 
+        const rows = Number(document.getElementById("rows").value);
+        const columns = Number(document.getElementById("columns").value);
 
+        for (let i = 0; i < rows; i++) {
+            for (let j = 0; j < columns; j++) {
+                const input = document.createElement("input");
+                input.type = "text"; // just display
+                input.readOnly = true;
+                input.value = det_matrix[i][j];
 
+                // Match the styling of generateMatrix()
+                input.className = "form-control-sm d-inline-block m-1";
+                input.style.width = "65px";
 
+                resultContainer.appendChild(input);
+            }
+            // add line break for new row
+            resultContainer.appendChild(document.createElement("br"));
+        }
+    }
+    function showInverseSolution() {
+        const rows = Number(document.getElementById("rows").value);
+        const columns = Number(document.getElementById("columns").value);
+        const solutionContainer = document.getElementById("contained4");
+        solutionContainer.innerHTML = "";
 
+        if (rows == 2 && columns == 2) {
+            const a = orig_matrix[0][0];
+            const b = orig_matrix[0][1];
+            const c = orig_matrix[1][0];
+            const d = orig_matrix[1][1];
 
+            const det = a*d - b*c;
+            if (det === 0) {
+                alert("Matrix has no inverse (determinant = 0).");
+                return;
+            }
 
+            const inv11 = det_matrix[0][0];
+            const inv12 = det_matrix[0][1];
+            const inv21 = det_matrix[1][0];
+            const inv22 = det_matrix[1][1];
 
+            const stepDiv = document.createElement("div");
+            stepDiv.style.fontSize = "32px";
+            stepDiv.innerHTML = `
+                <h2>Inverse Solution (2x2)</h2>
 
+                $$ 
+                \\text{Determinant: } det(A) = ad - bc = ${det} 
+                $$
 
+                $$ 
+                \\text{Inverse: } A^{-1} = \\frac{1}{det(A)} 
+                \\begin{bmatrix}
+                d & -b \\\\
+                -c & a
+                \\end{bmatrix} =
+                \\frac{1}{${det}}
+                \\begin{bmatrix}
+                ${d} & ${-b} \\\\
+                ${-c} & ${a}
+                \\end{bmatrix}
+                $$
 
+                $$ 
+                A^{-1} = 
+                \\begin{bmatrix}
+                ${inv11} & ${inv12} \\\\
+                ${inv21} & ${inv22}
+                \\end{bmatrix}
+                $$
+            `;
+            solutionContainer.appendChild(stepDiv);
+            if (window.MathJax) MathJax.typesetPromise([stepDiv]);
+        }
 
+        if (rows == 3 && columns == 3) {
+            const a = orig_matrix[0][0], b = orig_matrix[0][1], c = orig_matrix[0][2];
+            const d = orig_matrix[1][0], e = orig_matrix[1][1], f = orig_matrix[1][2];
+            const g = orig_matrix[2][0], h = orig_matrix[2][1], i = orig_matrix[2][2];
+
+            const det = a*(e*i-f*h) - b*(d*i-f*g) + c*(d*h-e*g);
+            if (det === 0) {
+                alert("Matrix has no inverse (determinant = 0).");
+                return;
+            }
+
+            const c11 = e*i - f*h;
+            const c12 = -(d*i - f*g);
+            const c13 = d*h - e*g;
+
+            const c21 = -(b*i - c*h);
+            const c22 = a*i - c*g;
+            const c23 = -(a*h - b*g);
+
+            const c31 = b*f - c*e;
+            const c32 = -(a*f - c*d);
+            const c33 = a*e - b*d;
+
+            const stepDiv = document.createElement("div");
+            stepDiv.style.fontSize = "32px";
+            stepDiv.innerHTML = `
+                <h1 class="text-light text-center">Solution</h1>
+
+                $$ 
+                \\text{Determinant: } det(A) = ${det} 
+                $$
+
+                $$ 
+                \\text{Cofactor Matrix: }
+                \\begin{bmatrix}
+                ${c11} & ${c12} & ${c13} \\\\
+                ${c21} & ${c22} & ${c23} \\\\
+                ${c31} & ${c32} & ${c33}
+                \\end{bmatrix}
+                $$
+
+                $$ 
+                \\text{Adjugate (transpose of cofactor): }
+                \\begin{bmatrix}
+                ${c11} & ${c21} & ${c31} \\\\
+                ${c12} & ${c22} & ${c32} \\\\
+                ${c13} & ${c23} & ${c33}
+                \\end{bmatrix}
+                $$
+
+                $$ 
+                A^{-1} = \\frac{1}{det(A)} \\cdot \\text{Adjugate} =
+                \\frac{1}{${det}} 
+                \\begin{bmatrix}
+                ${c11} & ${c21} & ${c31} \\\\
+                ${c12} & ${c22} & ${c32} \\\\
+                ${c13} & ${c23} & ${c33}
+                \\end{bmatrix}
+                $$
+
+                $$ 
+                A^{-1} = 
+                \\begin{bmatrix}
+                ${det_matrix[0][0]} & ${det_matrix[0][1]} & ${det_matrix[0][2]} \\\\
+                ${det_matrix[1][0]} & ${det_matrix[1][1]} & ${det_matrix[1][2]} \\\\
+                ${det_matrix[2][0]} & ${det_matrix[2][1]} & ${det_matrix[2][2]}
+                \\end{bmatrix}
+                $$
+            `;
+            solutionContainer.appendChild(stepDiv);
+            if (window.MathJax) MathJax.typesetPromise([stepDiv]);
+        }
+
+        if(rows > 3 && columns > 3){
+        const solutionContainer = document.getElementById("contained4");
+        solutionContainer.innerHTML = ""; // clear previous
+
+        const stepDiv = document.createElement("div");
+        stepDiv.style.fontSize = "32px";
+        stepDiv.innerHTML = `
+        <h1 class="text-center text-light">Step-by-Step Solution Not Available</h1>
+        $$
+        \\text{Step-by-step solution of the determinant of the matrix is only available for 2x2 and 3x3 matrices.}
+        $$
+    `;
+
+    solutionContainer.appendChild(stepDiv);
+
+    if (window.MathJax) {
+        MathJax.typesetPromise([stepDiv]);
+    }
+}
+    }
+    //Fill the matrix
     function displayMatrixValue() {
+        console.log("DisplayMatrixValue Function Called.")
         const rows = Number(document.getElementById("rows").value);
         const columns = Number(document.getElementById("columns").value);
         if (!rows || !columns) {
             console.log("error not square");
-            alert("Please enter valid row and column sizes greater than 1. Row and Column sizes must be the same for the determinant of the Matrix.");
+            alert("Please enter valid row and column sizes greater than 1. Row and Column sizes must be the same for the inverse of the Matrix.");
             return;
         }
-        if (rows <= 1 && columns <= 1) {
-            alert("Please enter valid row and column sizes greater than 1. Row and Column sizes must be the same for the determinant of the Matrix.");
+        if (rows <= 0 && columns <= 0) {
+            alert("Please enter valid row and column sizes greater than 1. Row and Column sizes must be the same for the inverse of the Matrix.");
             return;
         }
         for (let i = 0; i < rows; i++) {
             det_matrix[i] = [];
+            orig_matrix[i] = [];
             for (let j = 0; j < columns; j++) {
-                const val1 = document.getElementById(`matrix1[${i}][${j}]`).value;
+                const val1 = parseFloat(document.getElementById(`matrix1[${i}][${j}]`).value);
                 det_matrix[i][j] = val1;
+                orig_matrix[i][j] = val1;
+                //check if an input field is left empty
+                if (val1 === "") {
+                    alert(`Input at row ${i + 1}, column ${j + 1} is empty. Please enter a number.`);
+                    return;
+                }
+                //check if an input field is not a number.
+                if (isNaN(val1)) {
+                    alert(`Invalid input at row ${i + 1}, column ${j + 1}. Please enter a valid number.`);
+                    return;
+                }
+                console.log("Value of det_matrix: " + det_matrix);
+            }
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*
+
+
                 //check if an input field is left empty
                 if (val1 === "") {
                     alert(`Input at row ${i + 1}, column ${j + 1} is empty. Please enter a number.`);
@@ -168,259 +454,9 @@
                     alert(`Invalid input at row ${i + 1}, column ${j + 1}. Please enter a valid number.`);
                     return;
                 }
-                console.log("Value of det_matrix: " + det_matrix);
-            }
-        }
-        getDeterminant();
-        showSolution(rows, columns);
-    }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    function getDeterminant() {
-        document.getElementById("contained3").innerHTML = "";
-        const determinant = math.det(det_matrix);
-        console.log("The determinant of the inputted matrix is: " + determinant);
-        let resultContainer = document.getElementById("contained3");
-
-        let input = document.createElement("input");
-        input.type = "number";
-        input.disabled = true;
-        input.value = determinant;
-        let p = document.createElement("p");
-        p.textContent = determinant;
-        resultContainer.appendChild(p);
-    }
-
-
-    function showSolution(rows, columns) {
-        const solutionContainer = document.getElementById("contained4");
-        solutionContainer.innerHTML = ""; // Clear previous results
-        
-        if (rows != columns) {
-            alert("Matrix rows and columns be equal to each other for the determinant of the Matrix.");
-            resetInput();
-            return;    
-        }
-        if (rows == 2 && columns == 2) {
-            const a = (det_matrix[0][0]);
-            const b = (det_matrix[0][1]);
-            const c = (det_matrix[1][0]);
-            const d = (det_matrix[1][1]);
-            const determinant = a * d - b * c;
-            // Create a div and insert LaTeX content
-            const stepDiv = document.createElement("div");
-            stepDiv.style.fontSize = "32px";
-            stepDiv.innerHTML = `
-            <h1>Solution</h1>
-            $$ 
-            \\det(A) =
-            \\begin{vmatrix}
-            ${a} & ${b} \\\\
-            ${c} & ${d}
-            \\end{vmatrix}
-            $$
-
-            $$ 
-            = (${a} \\times ${d}) - (${b} \\times ${c}) 
-            $$
-
-            $$ 
-            det(A) = ${determinant} 
-            $$
-        `;
-            solutionContainer.appendChild(stepDiv);
-            // Re-render MathJax
-            if (window.MathJax) {
-                MathJax.typesetPromise([stepDiv]);
-            }
-        }
-        if (rows == 3 && columns == 3) {
-            const a = Number(det_matrix[0][0]);
-            const b = Number(det_matrix[0][1]);
-            const c = Number(det_matrix[0][2]);
-
-            const d = Number(det_matrix[1][0]);
-            const e = Number(det_matrix[1][1]);
-            const f = Number(det_matrix[1][2]);
-
-            const g = Number(det_matrix[2][0]);
-            const h = Number(det_matrix[2][1]);
-            const i = Number(det_matrix[2][2]);
-
-            // Step 1: compute sub-determinants
-            const term1 = e * i - f * h;
-            const term2 = d * i - f * g;
-            const term3 = d * h - e * g;
-
-            const determinant = a * term1 - b * term2 + c * term3;
-
-            // Create a div to display solution
-            const solutionContainer = document.getElementById("contained4");
-            solutionContainer.innerHTML = ""; // clear previous
-
-            const stepDiv = document.createElement("div");
-            stepDiv.style.fontSize = "32px";
-            stepDiv.innerHTML = `
-        <h1>Solution</h1>
-
-        $$ 
-        \\det(A) =
-        \\begin{vmatrix}
-        ${a} & ${b} & ${c} \\\\
-        ${d} & ${e} & ${f} \\\\
-        ${g} & ${h} & ${i}
-        \\end{vmatrix}
-        $$
-        
-        $$ 
-        = ${a} \\cdot (${e} \\cdot ${i} - ${f} \\cdot ${h}) 
-          - ${b} \\cdot (${d} \\cdot ${i} - ${f} \\cdot ${g}) 
-          + ${c} \\cdot (${d} \\cdot ${h} - ${e} \\cdot ${g})
-        $$
-        
-        $$ 
-        = ${a} \\cdot (${term1}) - ${b} \\cdot (${term2}) + ${c} \\cdot (${term3})
-        $$
-        
-        $$ 
-        det(A) = ${determinant}
-        $$
-    `;
-            solutionContainer.appendChild(stepDiv);
-            if (window.MathJax) {
-                MathJax.typesetPromise([stepDiv]);
-            }
-        }
-        if (rows == 4 && columns == 4) {
-            const m = det_matrix.map(row => row.map(Number)); // ensure numeric
-            // Assign variables for readability
-            const a = m[0][0], b = m[0][1], c = m[0][2], d = m[0][3];
-
-            // Compute the 3x3 minors for cofactor expansion
-            const minor = (i, j) => {
-                return m
-                    .filter((_, rowIndex) => rowIndex !== i)
-                    .map(row => row.filter((_, colIndex) => colIndex !== j));
-            };
-            const term = (coef, minorMatrix) => coef * math.det(minorMatrix);
-            const termA = term(a, minor(0, 0));
-            const termB = term(-b, minor(0, 1));
-            const termC = term(c, minor(0, 2));
-            const termD = term(-d, minor(0, 3));
-
-            const determinant = termA + termB + termC + termD;
-
-            // Prepare LaTeX display
-            const solutionContainer = document.getElementById("contained4");
-            solutionContainer.innerHTML = ""; // clear previous
-
-            const stepDiv = document.createElement("div");
-            stepDiv.style.fontSize = "32px";
-            stepDiv.innerHTML = `
-            <h2>Solution</h2>
-
-            $$ 
-            \\det(A) =
-            \\begin{vmatrix}
-            ${m[0][0]} & ${m[0][1]} & ${m[0][2]} & ${m[0][3]} \\\\
-            ${m[1][0]} & ${m[1][1]} & ${m[1][2]} & ${m[1][3]} \\\\
-            ${m[2][0]} & ${m[2][1]} & ${m[2][2]} & ${m[2][3]} \\\\
-            ${m[3][0]} & ${m[3][1]} & ${m[3][2]} & ${m[3][3]}
-            \\end{vmatrix}
-            $$
-            
-            $$ 
-            = ${a} \\cdot \\det
-            \\begin{vmatrix}
-            ${m[1][1]} & ${m[1][2]} & ${m[1][3]} \\\\
-            ${m[2][1]} & ${m[2][2]} & ${m[2][3]} \\\\
-            ${m[3][1]} & ${m[3][2]} & ${m[3][3]}
-            \\end{vmatrix}
-            - ${b} \\cdot \\det
-            \\begin{vmatrix}
-            ${m[1][0]} & ${m[1][2]} & ${m[1][3]} \\\\
-            ${m[2][0]} & ${m[2][2]} & ${m[2][3]} \\\\
-            ${m[3][0]} & ${m[3][2]} & ${m[3][3]}
-            \\end{vmatrix}
-            + ${c} \\cdot \\det
-            \\begin{vmatrix}
-            ${m[1][0]} & ${m[1][1]} & ${m[1][3]} \\\\
-            ${m[2][0]} & ${m[2][1]} & ${m[2][3]} \\\\
-            ${m[3][0]} & ${m[3][1]} & ${m[3][3]}
-            \\end{vmatrix}
-            - ${d} \\cdot \\det
-            \\begin{vmatrix}
-            ${m[1][0]} & ${m[1][1]} & ${m[1][2]} \\\\
-            ${m[2][0]} & ${m[2][1]} & ${m[2][2]} \\\\
-            ${m[3][0]} & ${m[3][1]} & ${m[3][2]}
-            \\end{vmatrix}
-            $$
-            
-            $$ 
-            det(A) = ${termA} + ${termB} + ${termC} + ${termD} 
-            = ${determinant}
-            $$
-        `;
-            solutionContainer.appendChild(stepDiv);
-            if (window.MathJax) {
-                MathJax.typesetPromise([stepDiv]);
-            }
-        }
-        //When matrix dimension is > 4, display this instead.
-        else if (rows > 4 && columns >= 4) {
-            let default_text = document.createElement("h2");
-            default_text.textContent = "Step-by-step solution of the determinant of the matrix is only available for 2x2, 3x3, and 4x4.";
-
-            let targetContainer = document.getElementById("contained4");
-            targetContainer.append(default_text);
-        }
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    */
 
 
 
